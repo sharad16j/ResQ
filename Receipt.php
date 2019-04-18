@@ -1,6 +1,7 @@
 <?php
 include "connection.php";
 $roll_no=$_REQUEST["rollno"];
+session_start();
 $_SESSION['rollno'] = $roll_no;
 $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
 
@@ -47,7 +48,7 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
         <h4 align="center">Money Receipt</h4>
     </div>
     <fieldset>
-        <form name="myform" class="boxDisabled">
+        <form name="myform" class="boxDisabled" action="document.php" method="POST">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="thumbnail">
@@ -82,7 +83,7 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
                 <div class="col-sm-6 col-lg-3">
                     <div class="thumbnail">
                         <label for="rollno">MAKAUT Roll Number: </label>
-                        <input disabled required maxlength="11" data-length="11" type="text" class="form-control input" id="rollno" name="rollno" placeholder="Enter MAKAUT roll no..." <?php  echo $res['std_rollno']?>>
+                        <input disabled required maxlength="11" data-length="11" type="text" class="form-control input" id="rollno" name="rollno" placeholder="Enter MAKAUT roll no..." value="<?php  echo $res['std_rollno']?>">
                     </div>
                 </div>
               </div>

@@ -1,17 +1,13 @@
 <?php
-	include "connection.php";
-	include "Receipt.php"
-$fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
 
-    while($res=mysqli_fetch_assoc($fetch)){
 
-	$name=$res['std_name'];
-	$stream=$res['std_stream'];
-	$email=$res['std_email'];
-	$phone=$res['std_number'];
-	$studentID=$res['std_id'];
-	$regno=$res['std_regno'];
-	}
+	$name=$_POST['name'];
+	$stream=$_POST['std_stream'];
+	$email=$_POST['email'];
+	$phone=$_POST['number'];
+	$studentID=$_POST['studentID'];
+	$regno=$_POST['regno'];
+	$rollno=$_POST['rollno']
 	$year=$_POST['year'];
 	$semester=$_POST['semester'];
 	$rupees=$_POST['rupees'];
@@ -52,7 +48,7 @@ $pdf->Cell(180,-9," Student's ID :- {$studentID}",0,1,'R');
 $pdf->ln(6); 
 $pdf->SetFont('Arial','B',13);
 $pdf->Cell(0,8,"MAKAUT Registration No. :- {$regno} ",0,1,'L');
-$pdf->Cell(180,-8,"MAKAUT Roll No :- ",0,1,'R');
+$pdf->Cell(180,-8,"MAKAUT Roll No :- {$rollno}",0,1,'R');
 $pdf->ln(6);
 $pdf->Cell(0,8,"Stream : {$stream} ",0,1,'L');         
 $pdf->Cell(180,-6,"Year :   {$year}",0,1,'R'); 
