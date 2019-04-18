@@ -39,14 +39,14 @@ body{
 
 fieldset
 {
-  padding: 0%; 
+  padding: 0%;
 }
 .thumbnail{
     background: none;
     color: white;
     border: 0;
 }
-.box input[type="text"], .box input[type="email"], .box input[type="option"], .box input[type="date"]{
+.box input[type="text"], .box input[type="email"], .box input[type="option"], .box input[type="date"], .box input[type="password"]{
     border: 0;
     background: none;
     display: block;
@@ -81,11 +81,11 @@ textarea:focus{
 textarea::placeholder, .box input::placeholder{
     color: goldenrod;
 }
-.box input[type="text"]:focus, .box input[type="email"]:focus, .box input[type="option"]:focus, .box input[type="date"]:focus{
+.box input[type="text"]:focus, .box input[type="email"]:focus, .box input[type="option"]:focus, .box input[type="date"]:focus, .box input[type="password"]:focus{
     width: 100%;
     border-color: red;
 }
-textarea:hover, .box input[type="text"]:hover, .box input[type="email"]:hover, .box input[type="option"]:hover, .box input[type="date"]:hover{
+textarea:hover, .box input[type="text"]:hover, .box input[type="email"]:hover, .box input[type="option"]:hover, .box input[type="date"]:hover, .box input[type="password"]:hover{
     border: 2px solid rgb(165, 138, 238);
 }
 .box input[type="submit"]{
@@ -126,6 +126,9 @@ textarea:hover, .box input[type="text"]:hover, .box input[type="email"]:hover, .
 input:required:valid {
     border-color: #3cff00;
 }
+input-tag:valid {
+    border-color: #3cff00;
+}
 .btn{
     border: 1px solid orange;
     background: none;
@@ -145,9 +148,15 @@ input:required:valid {
     color: #fff;
 }
 .btn1:hover, .btn2:hover{
-    color: black;
+    color: #fff;
+}
+.btn1:focus, .btn2:focus{
+    color: #fff;
 }
 .btn3:hover, .btn4:hover{
+    color: orange;
+}
+.btn3:focus, .btn4:focus{
     color: orange;
 }
 .btn::before{
@@ -159,6 +168,7 @@ input:required:valid {
     background: orange;
     z-index: -1;
     transition: 0.8s;
+    color: orange;  
 }
 .btn1::before, .btn3::before{
     top: 0;

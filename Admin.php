@@ -27,7 +27,7 @@
               <li><a href="Search.php"><h3 style="display: inline;" class="fas fa-search"></h3></a></li>
           </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="Admin.php">Login <i class="fas fa-user"></i></a></li>
+            <li class="active"><a href="AdminLogin.php">Login <i class="fas fa-user"></i></a></li>
         </ul>
       </div>
     </div>

@@ -48,48 +48,48 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
         <h4 align="center">Money Receipt</h4>
     </div>
     <fieldset>
-        <form name="myform" action="document.php" method="POST" onsubmit="return formcheck()">
+        <form name="myform" action="document.php" method="post" onsubmit="return formcheck()">
         <div class="boxDisabled">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="thumbnail">
                         <label for="name">Student's Name (BLOCK LETTER):</label>
-                        <input disabled required type="text" onkeypress="return NAME(event,this);" class="validate form-control input" id="name" name="name" placeholder="Your name.." value="<?php  echo $res['std_name']?>">
+                        <input disabled required type="text" onkeypress="return NAME(event,this);" class="validate form-control input" id="name" name="name" placeholder="Your name..">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="thumbnail">
                         <label for="email">Email ID:</label>
-                        <input disabled required type="email" onkeypress="return EMAIL(event,this);" class="form-control input" id="email" name="email" placeholder="Make sure it is correct, to receive the receipt.." value="<?php  echo $res['std_email']?>">
+                        <input disabled required type="email" onkeypress="return EMAIL(event,this);" class="form-control input" id="email" name="email" placeholder="Make sure it is correct, to receive the receipt..">
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="thumbnail">
                         <label for="number">Phone Number: </label>
-                        <input disabled required maxlength="10" data-length="10" type="text" class="form-control input" id="number" name="number" placeholder="Your contact number.." value="<?php  echo $res['std_number']?>">
+                        <input disabled required maxlength="10" data-length="10" type="text" class="form-control input" id="number" name="number" placeholder="Your contact number..">
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="thumbnail">
                         <label for="studentID">Student ID Number: </label>
-                        <input disabled required maxlength="10" data-length="10" type="text" class="form-control input" id="studentID" name="studentID" placeholder="Enter Student ID.." value="<?php ; echo $res['std_id']?>">
+                        <input disabled required maxlength="10" data-length="10" type="text" class="form-control input" id="studentID" name="studentID" placeholder="Enter Student ID..">
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="thumbnail">
                         <label for="regno">MAKAUT Registration Number: </label>
-                        <input disabled required maxlength="12" data-length="12" type="text" class="form-control input" id="regno" name="regno" placeholder="Enter MAKAUT registration no..." value="<?php  echo $res['std_regno']?>">
+                        <input disabled required maxlength="12" data-length="12" type="text" class="form-control input" id="regno" name="regno" placeholder="Enter MAKAUT registration no...">
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="thumbnail">
                         <label for="rollno">MAKAUT Roll Number: </label>
-                        <input disabled required maxlength="11" data-length="11" type="text" class="form-control input" id="rollno" name="rollno" placeholder="Enter MAKAUT roll no..." value="<?php  echo $res['std_rollno']?>">
+                        <input disabled required maxlength="11" data-length="11" type="text" class="form-control input" id="rollno" name="rollno" placeholder="Enter MAKAUT roll no...">
                     </div>
                 </div>
-              </div>
+            </div>
         </div>
-      </fieldset><hr style="color: blanchedalmond;">
+    </fieldset><hr>
         <div class="form-horizontal box">
           <div class="col-sm-4">
               <div class="thumbnail">
@@ -145,8 +145,8 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
               <label for="rupees">Received a sum of Rupees:</label>
               <input required onkeypress="return RUPEES(event,this);" type="text" name="rupees" id="rupees" placeholder="Amount in words..">
             </center>
-          </div> 
-          <fieldset>
+          </div>
+          <fieldset>  
             <div class="row atLeastOne">
               <div class="col-sm-6">
                 <label for="cb1" class="thumbnail col-xs-7 control-label">MAKAUT Development Fees:</label>
