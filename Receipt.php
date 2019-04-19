@@ -1,11 +1,13 @@
 <?php
-include "connection.php";
-$roll_no=$_REQUEST["rollno"];
-session_start();
-$_SESSION['rollno'] = $roll_no;
-$fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
-
-    while($res=mysqli_fetch_assoc($fetch)){?>
+    include "connection.php";
+    $roll_no=$_REQUEST["rollno"];
+    session_start();
+    $_SESSION['rollno'] = $roll_no;
+    $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
+    while($res=mysqli_fetch_assoc($fetch)){
+      session_start();
+      $_SESSION['roll'] = $res['std_rollno'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +37,7 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
               <li><a href="Search.php"><h3 style="display: inline;" class="fas fa-search"></h3></a></li>
           </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="AdminLogin.php">Login Page <i class="fas fa-user"></i></a></li>
+            <li><a href="AdminLogin.php">Admin Login Page <i class="fas fa-user"></i></a></li>
         </ul>
       </div>
     </div>
@@ -147,31 +149,33 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
             </center>
           </div> 
           <fieldset>
-            <div class="row atLeastOne">
-              <div class="col-sm-6">
-                <label for="cb1" class="thumbnail col-xs-7 control-label">MAKAUT Development Fees:</label>
-                <div class="col-xs-5">
-                  <input type="text" name="cb1" id="cb1" value="" placeholder="0"><br>
-                </div>
-                <label for="cb2" class="thumbnail col-xs-7 control-label">MAKAUT Registration Fees:</label>
-                <div class="col-xs-5">
-                  <input type="text" name="cb2" id="cb2" value="" placeholder="0"><br>
-                </div>
-                <label for="cb3" class="thumbnail col-xs-7 control-label">MAKAUT Exam Fees:</label>
-                <div class="col-xs-5">
-                  <input type="text" name="cb3" id="cb3" value="" placeholder="0"><br>
-                </div>
-                <label for="cb4" class="thumbnail col-xs-7 control-label">MAKAUT PPR/PPS:</label>
-                <div class="col-xs-5">
-                  <input type="text" name="cb4" id="cb4" value="" placeholder="0"><br>
-                </div>
-                <label for="cb5" class="thumbnail col-xs-7 control-label">MAKAUT Back Log:</label>
-                <div class="col-xs-5">
-                  <input type="text" name="cb5" id="cb5" value="" placeholder="0"><br>
-                </div>
-                <label for="cb6" class="thumbnail col-xs-7 control-label">Other:</label>
-                <div class="col-xs-5">
-                  <input type="text" name="cb6" id="cb6" value="" placeholder="0"><br>
+            <div class="row">
+              <div class="atLeastOne">
+                <div class="col-sm-6">
+                  <label for="cb1" class="thumbnail col-xs-7 control-label">MAKAUT Development Fees:</label>
+                  <div class="col-xs-5">
+                    <input type="text" name="cb1" id="cb1" value="" placeholder="0"><br>
+                  </div>
+                  <label for="cb2" class="thumbnail col-xs-7 control-label">MAKAUT Registration Fees:</label>
+                  <div class="col-xs-5">
+                    <input type="text" name="cb2" id="cb2" value="" placeholder="0"><br>
+                  </div>
+                  <label for="cb3" class="thumbnail col-xs-7 control-label">MAKAUT Exam Fees:</label>
+                  <div class="col-xs-5">
+                    <input type="text" name="cb3" id="cb3" value="" placeholder="0"><br>
+                  </div>
+                  <label for="cb4" class="thumbnail col-xs-7 control-label">MAKAUT PPR/PPS:</label>
+                  <div class="col-xs-5">
+                    <input type="text" name="cb4" id="cb4" value="" placeholder="0"><br>
+                  </div>
+                  <label for="cb5" class="thumbnail col-xs-7 control-label">MAKAUT Back Log:</label>
+                  <div class="col-xs-5">
+                    <input type="text" name="cb5" id="cb5" value="" placeholder="0"><br>
+                  </div>
+                  <label for="cb6" class="thumbnail col-xs-7 control-label">Other:</label>
+                  <div class="col-xs-5">
+                    <input type="text" name="cb6" id="cb6" value="" placeholder="0"><br>
+                  </div>
                 </div>
               </div>
 
@@ -182,27 +186,27 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
                     <select required name="payvia" id="payvia" class="form-control input">
                       <option name="select4" value="" disabled="disabled" selected="selected">select method</option>
                       <option value="Cash">Cash</option>
-                      <option value="#chkdd">Cheque or Demand Draft</option>
+                      <option value="chkdd">Cheque or Demand Draft</option>
                     </select>
                   </div>
                 </div>
 
                 <fieldset id="chkdd" class="col-xs-12">
-                  <label class="thumbnail col-xs-5 control-label" for="num">Cheque/DD number:</label>
+                  <label class="thumbnail col-xs-5 control-label"  for="num">Cheque/DD number:</label>
                   <div class="col-xs-7">
-                    <input required="" type="text" id="num"><br>
+                    <input required="" name="num"  type="text" id="num"><br>
                   </div>
-                  <label class="thumbnail col-xs-5 control-label" for="bank">Issuing bank:</label>
+                  <label class="thumbnail col-xs-5 control-label"  for="bank">Issuing bank:</label>
                   <div class="col-xs-7">
-                    <input required="" type="text" id="bank" onkeypress="return RUPEES(event,this);"><br>
+                    <input required="" name="bank" type="text" id="bank" onkeypress="return RUPEES(event,this);"><br>
                   </div>
-                  <label class="thumbnail col-xs-5 control-label" for="branch">Bank branch:</label>
+                  <label class="thumbnail col-xs-5 control-label"  for="branch">Bank branch:</label>
                   <div class="col-xs-7">
-                    <input required="" type="text" id="branch" onkeypress="return RUPEES(event,this);"><br>
+                    <input required="" type="text" name="branch" id="branch" onkeypress="return RUPEES(event,this);"><br>
                   </div>
-                  <label class="thumbnail col-xs-5 control-label" for="date">Cheque/DD date:</label>
+                  <label class="thumbnail col-xs-5 control-label"  for="date">Cheque/DD date:</label>
                   <div class="col-xs-7">
-                    <input required="" type="date" id="date">
+                    <input required="" name="date" type="date" id="date">
                   </div>
                 </fieldset>
               </div>
@@ -221,7 +225,6 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script>
-  
     function formcheck(){
         var total=0;
         var fields = $(".atLeastOne")
@@ -290,4 +293,6 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
   </script>
 </body>
 </html>
- <?php }  ?>
+<?php
+    }
+?>
