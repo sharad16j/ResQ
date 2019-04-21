@@ -1,13 +1,14 @@
 <?php
-    include "connection.php";
-    $roll_no=$_REQUEST["rollno"];
-    session_start();
-    $_SESSION['rollno'] = $roll_no;
-    $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
+include "connection.php";
+$roll_no=$_REQUEST["rollno"];
+session_start();
+$_SESSION['rollno'] = $roll_no;
+$fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
+
     while($res=mysqli_fetch_assoc($fetch)){
       session_start();
       $_SESSION['roll'] = $res['std_rollno'];
-?>
+      ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +38,7 @@
               <li><a href="Search.php"><h3 style="display: inline;" class="fas fa-search"></h3></a></li>
           </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="AdminLogin.php">Admin Login Page <i class="fas fa-user"></i></a></li>
+            <li><a href="AdminLogin.php">Login Page <i class="fas fa-user"></i></a></li>
         </ul>
       </div>
     </div>
@@ -50,7 +51,7 @@
         <h4 align="center">Money Receipt</h4>
     </div>
     <fieldset>
-        <form name="myform" action="document.php" method="POST" onsubmit="return formcheck()">
+        <form name="myform" action="receiptaction.php" method="POST" onsubmit="return formcheck()">
         <div class="boxDisabled">
             <div class="row">
                 <div class="col-sm-6">
@@ -149,33 +150,31 @@
             </center>
           </div> 
           <fieldset>
-            <div class="row">
-              <div class="atLeastOne">
-                <div class="col-sm-6">
-                  <label for="cb1" class="thumbnail col-xs-7 control-label">MAKAUT Development Fees:</label>
-                  <div class="col-xs-5">
-                    <input type="text" name="cb1" id="cb1" value="" placeholder="0"><br>
-                  </div>
-                  <label for="cb2" class="thumbnail col-xs-7 control-label">MAKAUT Registration Fees:</label>
-                  <div class="col-xs-5">
-                    <input type="text" name="cb2" id="cb2" value="" placeholder="0"><br>
-                  </div>
-                  <label for="cb3" class="thumbnail col-xs-7 control-label">MAKAUT Exam Fees:</label>
-                  <div class="col-xs-5">
-                    <input type="text" name="cb3" id="cb3" value="" placeholder="0"><br>
-                  </div>
-                  <label for="cb4" class="thumbnail col-xs-7 control-label">MAKAUT PPR/PPS:</label>
-                  <div class="col-xs-5">
-                    <input type="text" name="cb4" id="cb4" value="" placeholder="0"><br>
-                  </div>
-                  <label for="cb5" class="thumbnail col-xs-7 control-label">MAKAUT Back Log:</label>
-                  <div class="col-xs-5">
-                    <input type="text" name="cb5" id="cb5" value="" placeholder="0"><br>
-                  </div>
-                  <label for="cb6" class="thumbnail col-xs-7 control-label">Other:</label>
-                  <div class="col-xs-5">
-                    <input type="text" name="cb6" id="cb6" value="" placeholder="0"><br>
-                  </div>
+            <div class="row atLeastOne">
+              <div class="col-sm-6">
+                <label for="cb1" class="thumbnail col-xs-7 control-label">MAKAUT Development Fees:</label>
+                <div class="col-xs-5">
+                  <input type="text" name="cb1" id="cb1" value="" placeholder="0"><br>
+                </div>
+                <label for="cb2" class="thumbnail col-xs-7 control-label">MAKAUT Registration Fees:</label>
+                <div class="col-xs-5">
+                  <input type="text" name="cb2" id="cb2" value="" placeholder="0"><br>
+                </div>
+                <label for="cb3" class="thumbnail col-xs-7 control-label">MAKAUT Exam Fees:</label>
+                <div class="col-xs-5">
+                  <input type="text" name="cb3" id="cb3" value="" placeholder="0"><br>
+                </div>
+                <label for="cb4" class="thumbnail col-xs-7 control-label">MAKAUT PPR/PPS:</label>
+                <div class="col-xs-5">
+                  <input type="text" name="cb4" id="cb4" value="" placeholder="0"><br>
+                </div>
+                <label for="cb5" class="thumbnail col-xs-7 control-label">MAKAUT Back Log:</label>
+                <div class="col-xs-5">
+                  <input type="text" name="cb5" id="cb5" value="" placeholder="0"><br>
+                </div>
+                <label for="cb6" class="thumbnail col-xs-7 control-label">Other:</label>
+                <div class="col-xs-5">
+                  <input type="text" name="cb6" id="cb6" value="" placeholder="0"><br>
                 </div>
               </div>
 
@@ -194,19 +193,19 @@
                 <fieldset id="chkdd" class="col-xs-12">
                   <label class="thumbnail col-xs-5 control-label"  for="num">Cheque/DD number:</label>
                   <div class="col-xs-7">
-                    <input required="" name="num"  type="text" id="num"><br>
+                    <input required="" name="num" value=" " type="text" id="num"><br>
                   </div>
                   <label class="thumbnail col-xs-5 control-label"  for="bank">Issuing bank:</label>
                   <div class="col-xs-7">
-                    <input required="" name="bank" type="text" id="bank" onkeypress="return RUPEES(event,this);"><br>
+                    <input required="" name="bank" value=" " type="text" id="bank" onkeypress="return RUPEES(event,this);"><br>
                   </div>
                   <label class="thumbnail col-xs-5 control-label"  for="branch">Bank branch:</label>
                   <div class="col-xs-7">
-                    <input required="" type="text" name="branch" id="branch" onkeypress="return RUPEES(event,this);"><br>
+                    <input required="" type="text" value=" " name="branch" id="branch" onkeypress="return RUPEES(event,this);"><br>
                   </div>
                   <label class="thumbnail col-xs-5 control-label"  for="date">Cheque/DD date:</label>
                   <div class="col-xs-7">
-                    <input required="" name="date" type="date" id="date">
+                    <input required="" name="date"  value=" " type="date" id="date">
                   </div>
                 </fieldset>
               </div>
@@ -225,6 +224,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script>
+  
     function formcheck(){
         var total=0;
         var fields = $(".atLeastOne")
@@ -293,6 +293,4 @@
   </script>
 </body>
 </html>
-<?php
-    }
-?>
+ <?php }  ?>

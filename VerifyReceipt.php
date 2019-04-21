@@ -4,9 +4,10 @@
     session_start();
     $_SESSION['rollno'] = $roll_no;
     $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
+    $fetch1=mysqli_query($connection,"select * from receipt where std_rollno='$roll_no' ");
     while($res=mysqli_fetch_assoc($fetch)){
-      session_start();
       $_SESSION['roll'] = $res['std_rollno'];
+      while($res1=mysqli_fetch_assoc($fetch1)){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,56 +96,30 @@
             <div class="col-sm-4">
                 <div class="thumbnail">
                     <label for="stream">Stream- </label>
-                    <select disabled required name="stream" id="stream" class="form-control input">
-                        <option name="select0" value=""  disabled="disabled" selected="selected">select stream</option>
-                        <option value="AEIE">AEIE</option>
-                        <option value="BBA">BBA</option>
-                        <option value="BCA">BCA</option>
-                        <option value="BME">BME</option>
-                        <option value="CE">CE</option>
-                        <option value="CSE">CSE</option>
-                        <option value="ECE">ECE</option>
-                        <option value="EEE">EEE</option>
-                        <option value="IT">IT</option>
-                        <option value="MBA">MBA</option>
-                        <option value="MCA">MCA</option>
-                        <option value="ME">ME</option>
-                    </select>
+                    <input disabled required name="stream" value="<?php  echo $res1['stream']?>"id="stream" class="form-control input">
+                        
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
                     <label for="year" style="margin-left: 5px;">Year-</label>
-                    <select disabled required name="year" id="year" class="form-control input">
-                        <option name="select1" value=""  disabled="disabled" selected="selected">select year</option>
-                        <option value="First">1st</option>
-                        <option value="Second">2d</option>
-                        <option value="Third">3rd</option>
-                        <option value="Fourth">4th</option>
-                    </select>
+                    <input disabled required name="year" value="<?php  echo $res1['year']?>"id="year" class="form-control input">
+                        
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
                     <label for="semester" style="margin-left: 5px;">Semester-</label>
-                    <select disabled required name="semester" id="semester" class="form-control input">
-                        <option name="select2" value=""  disabled="disabled" selected="selected">select semester</option>
-                        <option value="First">1st</option>
-                        <option value="Second">2nd</option>
-                        <option value="Third">3rd</option>
-                        <option value="Fourth">4th</option>
-                        <option value="Fifth">5th</option>
-                        <option value="Sixth">6th</option>
-                        <option value="Seventh">7th</option>
-                        <option value="Eighth">8th</option>
-                    </select>
+                    <input disabled required name="semester" id="semester" class="form-control input" value="<?php  echo $res1['semester']?>">
+                        
+                    
                 </div>
             </div>
             <label class="thumbnail"><h3><b>Fees Details:</b></h3>(in rupees)</label>
             <div class="thumbnail">
               <center>
                 <label for="rupees">Received a sum of Rupees:</label>
-                <input disabled required onkeypress="return RUPEES(event,this);" type="text" name="rupees" id="rupees" placeholder="Amount in words..">
+                <input disabled required onkeypress="return RUPEES(event,this);" type="text" name="rupees" id="rupees" value="<?php  echo $res1['sumofrupee']?>" placeholder="Amount in words..">
               </center>
             </div> 
             <fieldset>
@@ -153,70 +128,62 @@
                   <div class="col-sm-6">
                     <label for="cb1" class="thumbnail col-xs-7 control-label">MAKAUT Development Fees:</label>
                     <div class="col-xs-5">
-                      <input disabled type="text" name="cb1" id="cb1" value="" placeholder="0"><br>
+                      <input disabled type="text" name="cb1" id="cb1" value="<?php  echo $res1['dfees']?>" placeholder="0"><br>
                     </div>
                     <label for="cb2" class="thumbnail col-xs-7 control-label">MAKAUT Registration Fees:</label>
                     <div class="col-xs-5">
-                      <input disabled type="text" name="cb2" id="cb2" value="" placeholder="0"><br>
+                      <input disabled type="text" name="cb2" id="cb2" value="<?php  echo $res1['rfees']?>" placeholder="0"><br>
                     </div>
                     <label for="cb3" class="thumbnail col-xs-7 control-label">MAKAUT Exam Fees:</label>
                     <div class="col-xs-5">
-                      <input disabled type="text" name="cb3" id="cb3" value="" placeholder="0"><br>
+                      <input disabled type="text" name="cb3" id="cb3" value="<?php  echo $res1['efees']?>" placeholder="0"><br>
                     </div>
                     <label for="cb4" class="thumbnail col-xs-7 control-label">MAKAUT PPR/PPS:</label>
                     <div class="col-xs-5">
-                      <input disabled type="text" name="cb4" id="cb4" value="" placeholder="0"><br>
+                      <input disabled type="text" name="cb4" id="cb4" value="<?php  echo $res1['ppfee']?>" placeholder="0"><br>
                     </div>
                     <label for="cb5" class="thumbnail col-xs-7 control-label">MAKAUT Back Log:</label>
                     <div class="col-xs-5">
-                      <input disabled type="text" name="cb5" id="cb5" value="" placeholder="0"><br>
+                      <input disabled type="text" name="cb5" id="cb5" value="<?php  echo $res1['backlog']?>" placeholder="0"><br>
                     </div>
                     <label for="cb6" class="thumbnail col-xs-7 control-label">Other:</label>
                     <div class="col-xs-5">
-                      <input disabled type="text" name="cb6" id="cb6" value="" placeholder="0"><br>
+                      <input disabled type="text" name="cb6" id="cb6" value="<?php  echo $res1['other']?>" placeholder="0"><br>
                     </div>
                   </div>
                 </div>
-
-                <div class="col-sm-6">
-                  <label for="payvia" class="thumbnail col-xs-4 control-label" for="payvia">Select payment method-</label>
-                  <div class="col-xs-8">
-                    <div class="thumbnail">
-                      <select disabled required name="payvia" id="payvia" class="form-control input">
-                        <option name="select4" value="" disabled="disabled" selected="selected">select method</option>
-                        <option value="Cash">Cash</option>
-                        <option value="chkdd">Cheque or Demand Draft</option>
-                      </select>
-                    </div>
-                  </div>
+               <?php 
+               $payvia = $res1['payvia'];
+               if($payvia=="chkdd"){ ?>
 
                   <fieldset id="chkdd" class="col-xs-12">
                     <label class="thumbnail col-xs-5 control-label"  for="num">Cheque/DD number:</label>
                     <div class="col-xs-7">
-                      <input disabled required="" name="num"  type="text" id="num"><br>
+                      <input disabled required="" value="<?php  echo $res1['checkno']?>"name="num"  type="text" id="num"><br>
                     </div>
                     <label class="thumbnail col-xs-5 control-label"  for="bank">Issuing bank:</label>
                     <div class="col-xs-7">
-                      <input disabled required="" name="bank" type="text" id="bank" onkeypress="return RUPEES(event,this);"><br>
+                      <input disabled required="" value="<?php  echo $res1['bank']?>" name="bank" type="text" id="bank" onkeypress="return RUPEES(event,this);"><br>
                     </div>
                     <label class="thumbnail col-xs-5 control-label"  for="branch">Bank branch:</label>
                     <div class="col-xs-7">
-                      <input disabled required="" type="text" name="branch" id="branch" onkeypress="return RUPEES(event,this);"><br>
+                      <input disabled required="" value="<?php  echo $res1['branch']?>" type="text" name="branch" id="branch" onkeypress="return RUPEES(event,this);"><br>
                     </div>
                     <label class="thumbnail col-xs-5 control-label"  for="date">Cheque/DD date:</label>
                     <div class="col-xs-7">
-                      <input disabled required="" name="date" type="date" id="date">
+                      <input disabled required="" value="<?php  echo $res1['dateofissue']?>" name="date" type="date" id="date">
                     </div>
                   </fieldset>
                 </div>
               </div>
             </fieldset>
+         <?php } ?>
             <div class="col-xs-4">
                 <center><button class="btn btn1">Verify</button></center>
             </div>
             <div class="col-xs-8">
               <label class="thumbnail" for="Comments">Comments:</label>
-              <textarea disabled name="Comments" id="Comments" placeholder="Write number printed on notes (if asked)." style="height:100px; width: 100%;"></textarea><br>
+              <input disabled name="Comments" id="Comments" value="<?php  echo $res1['comments']?>" placeholder="Write number printed on notes (if asked)." style="height:100px; width: 100%;"></textarea><br>
             </div>
           </div>
       </div>
@@ -234,16 +201,7 @@
             if (field.value!="")
                 total=total+parseInt(field.value);
         }); 
-        if(total==0){
-            alert("Please fill the amount of fees that you want to pay, in the respective fields.");
-            return false;
-        }
-        else{
-            if(confirm("Total amount to be paid = Rs. "+total))
-                return true;
-            else
-                return false;
-        }
+        
     }
     $("#chkdd").prop('disabled', true);
     $("#chkdd").hide();
@@ -295,5 +253,5 @@
 </body>
 </html>
 <?php
-    }
+    }}
 ?>
