@@ -155,6 +155,7 @@
                <?php 
                $payvia = $res1['payvia'];
                if($payvia=="chkdd"){ ?>
+<<<<<<< HEAD
 <!--                
                 <div class="col-sm-6">
                   <label for="payvia" class="thumbnail col-xs-4 control-label" for="payvia">Select payment method-</label>
@@ -167,6 +168,8 @@
                       </select>
                     </div>
                   </div> -->
+=======
+>>>>>>> 5055583ab802be7f4a2e67da61a8decb31d5c9a7
 
                   <fieldset id="chkdd" class="col-xs-12">
                     <label class="thumbnail col-xs-5 control-label"  for="num">Cheque/DD number:</label>
