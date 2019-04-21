@@ -5,30 +5,32 @@
 	$rollno = $_SESSION['roll'];
 	$fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rollno' ");
 	while($res=mysqli_fetch_assoc($fetch)){
-			$name=$res['std_name'];
-			$stream=$res['std_stream'];
-			$email=$res['std_email'];
-			$phone=$res['std_number'];
-			$studentID=$res['std_id'];
-			$regno=$res['std_regno'];
-		}
-	$year=$_POST['year'];
-	$semester=$_POST['semester'];
-	$rupees=$_POST['rupees'];
-	$cb1=$_POST['cb1'];
-	$cb2=$_POST['cb2'];
-	$cb3=$_POST['cb3'];
-	$cb4=$_POST['cb4'];
-	$cb5=$_POST['cb5'];
-	$cb6=$_POST['cb6'];
-	$payvia=$_POST['payvia'];
-	if($payvia =="chkdd"){
-		$num=$_POST['num'];
-		$bank=$_POST['bank'];
-		$branch=$_POST['branch'];
-		$date=$_POST['date'];
+		$name=$res['std_name'];
+		$email=$res['std_email'];
+		$phone=$res['std_number'];
+		$studentID=$res['std_id'];
+		$regno=$res['std_regno'];
 	}
-	$comments=$_POST['Comments'];
+	$fetch=mysqli_query($connection,"select * from receipt where std_rollno='$rollno' ");
+	while($eas=mysqli_fetch_assoc($fetch)){
+		$stream=$eas['stream'];
+		$year=$eas['year'];
+		$semester=$eas['semester'];
+		$rupees=$eas['sumofrupee'];
+		$cb1=$eas['dfees'];
+		$cb2=$eas['rfees'];
+		$cb3=$eas['efees'];
+		$cb4=$eas['ppfee'];
+		$cb5=$eas['backlog'];
+		$cb6=$eas['other'];
+		$payvia=$eas['payvia'];
+		if($payvia =="chkdd"){
+		$num=$eas['checkno'];
+		$bank=$eas['bank'];
+		$branch=$eas['branch'];
+		$date=$eas['dateofissue'];}
+		$comments=$eas['comments'];
+	}
 	require('fpdf/fpdf.php');
 	$pdf = new FPDF('P','mm','A4');
 	$pdf->AddPage();
@@ -83,7 +85,8 @@
 	$total=$cb1+$cb2+$cb3+$cb4+$cb5+$cb6 ;
 	$pdf->Cell(0,-10,"{$total}  ",0,1,'C');
 	$pdf->Cell(0,10,"",1,1,'R');
-	if($payvia =="chkdd"){
+	if($payvia =="chkdd")	
+	{
 		$pdf->ln(8);
 		$pdf->Line(80,173,80,212);
 		$pdf->Cell(0,10,"Cheque/DD no  ",1,1,'L');
