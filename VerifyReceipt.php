@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Verify Receipt</title>
+  <title>Verify nhgfnfh Receipt</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -152,25 +152,22 @@
                     </div>
                   </div>
                 </div>
-               <?php 
+               <!-- <?php 
                $payvia = $res1['payvia'];
-               if($payvia=="chkdd"){ ?>
-<<<<<<< HEAD
-<!--                
-                <div class="col-sm-6">
+               if($payvia=="chkdd"){ ?> -->
+
+               
+               <!--  <div class="col-sm-6">
                   <label for="payvia" class="thumbnail col-xs-4 control-label" for="payvia">Select payment method-</label>
                   <div class="col-xs-8">
                     <div class="thumbnail">
                       <select required name="payvia" id="payvia" class="form-control input">
-                        <option name="select4" value="" disabled="disabled" selected="selected">select method</option>
+                        <option name="select4" value="chkdd" disabled="disabled" selected="selected">select method</option>
                         <option value="Cash">Cash</option>
-                        <option value="chkdd">Cheque or Demand Draft</option>
+                        <option select="selected" value="chkdd">Cheque or Demand Draft</option>
                       </select>
                     </div>
                   </div> -->
-=======
->>>>>>> 5055583ab802be7f4a2e67da61a8decb31d5c9a7
-
                   <fieldset id="chkdd" class="col-xs-12">
                     <label class="thumbnail col-xs-5 control-label"  for="num">Cheque/DD number:</label>
                     <div class="col-xs-7">
@@ -192,7 +189,7 @@
                 </div>
               </div>
             </fieldset>
-         <?php } ?>
+        <!--  <?php } ?> -->
             <div class="col-xs-4">
                 <center><button class="btn btn1">Verify</button></center>
             </div>

@@ -38,7 +38,7 @@
         <h4 align="center">Technocity, Panchpota, Garia, Kolkata - 700152, Phone: 1234567890</h4>
     </div>
     <fieldset>
-    <form name="myform" action="registeraction.php" class="box" method="POST">
+    <form name="myform" action="registeraction.php" class="box" method="POST" onsubmit="message()">
     <div class="row">
         <div class="col-sm-6">
             <div class="thumbnail">
@@ -98,7 +98,10 @@
                 }
             });
         });
+    function message()
+      alert("Want to continue?");
         function NAME(e, t) {
+      alert("Want to continue?");
             try {
                 if (window.event) {
                     var charCode = window.event.keyCode;

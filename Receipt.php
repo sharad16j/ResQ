@@ -6,8 +6,9 @@ $_SESSION['rollno'] = $roll_no;
 $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
 
     while($res=mysqli_fetch_assoc($fetch)){
+
       // session_start();
-      $_SESSION['roll'] = $res['std_rollno'];
+     // $_SESSION['roll'] = $res['std_rollno'];
       ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +52,7 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
         <h4 align="center">Money Receipt</h4>
     </div>
     <fieldset>
-        <form name="myform" action="receiptaction.php" method="POST" onsubmit="return formcheck()">
+        <form name="myform" action="receiptaction.php" method="POST" onsubmit="return formcheck() message()">
         <div class="boxDisabled">
             <div class="row">
                 <div class="col-sm-6">
@@ -244,6 +245,8 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
                 return false;
         }
     }
+    function message()
+      alert("Want to continue?");
     $("#chkdd").prop('disabled', true);
     $("#chkdd").hide();
     $('select[name="payvia"]').change(function()
