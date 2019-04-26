@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 18, 2019 at 04:34 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 5.6.38
+-- Generation Time: Apr 26, 2019 at 03:19 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +25,52 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `ID` int(11) NOT NULL,
+  `Username` varchar(50) NOT NULL,
+  `Password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`ID`, `Username`, `Password`) VALUES
+(1, 'Admin', '5678');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `receipt`
+--
+
+CREATE TABLE `receipt` (
+  `id` int(11) NOT NULL,
+  `std_rollno` bigint(50) NOT NULL,
+  `stream` varchar(50) NOT NULL,
+  `semester` varchar(50) NOT NULL,
+  `year` varchar(50) NOT NULL,
+  `sumofrupee` varchar(50) NOT NULL,
+  `dfees` int(50) NOT NULL,
+  `rfees` int(50) NOT NULL,
+  `efees` int(50) NOT NULL,
+  `ppfee` int(50) NOT NULL,
+  `backlog` int(50) NOT NULL,
+  `other` int(50) NOT NULL,
+  `payvia` varchar(50) NOT NULL,
+  `comments` varchar(50) NOT NULL,
+  `checkno` int(50) DEFAULT NULL,
+  `bank` varchar(50) DEFAULT NULL,
+  `branch` varchar(50) DEFAULT NULL,
+  `dateofissue` date DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `std_detail`
 --
 
@@ -39,33 +85,67 @@ CREATE TABLE `std_detail` (
   `std_rollno` bigint(15) NOT NULL
 ) ENGINE=MEMORY DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `std_detail`
+-- Table structure for table `users`
 --
 
-INSERT INTO `std_detail` (`id`, `std_name`, `std_email`, `std_stream`, `std_number`, `std_id`, `std_regno`, `std_rollno`) VALUES
-(1, 'SHARAD BAID', 'ammu@gmail.com', 'CSE', 987654321, 5646546555, 766767676767, 55555555555);
+CREATE TABLE `users` (
+  `userId` int(8) NOT NULL,
+  `userName` varchar(55) NOT NULL,
+  `password` varchar(55) NOT NULL,
+  `firstName` varchar(255) NOT NULL,
+  `lastName` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `receipt`
+--
+ALTER TABLE `receipt`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `std_rollno` (`std_rollno`);
+
+--
 -- Indexes for table `std_detail`
 --
 ALTER TABLE `std_detail`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `std_id` (`std_id`);
+  ADD UNIQUE KEY `std_id` (`std_id`),
+  ADD UNIQUE KEY `std_rollno` (`std_rollno`),
+  ADD UNIQUE KEY `std_regno` (`std_regno`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `receipt`
+--
+ALTER TABLE `receipt`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `std_detail`
 --
 ALTER TABLE `std_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

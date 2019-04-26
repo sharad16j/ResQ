@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Search</title>
+  <title>Admin Page</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -22,17 +22,14 @@
         <a href="Receipt.php" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> IMAGE</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-nav-demo">
-          <ul class="nav navbar-nav">
-              <!-- <li><a href="Register.php">Register</a></li> -->
-              <li class="active"><a href="Search.php"><h3 style="display: inline;" class="fas fa-search"></h3></a></li>
-          </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="AdminLogin.php">Admin Login Page <i class="fas fa-user"></i></a></li>
+            <li class="active"><a href="AdminLogin.php">Admin <i class="fas fa-user"></i></a></li>
+			      <li><a href="Logout.php">Logout <i class="fas fa-sign-out-alt"></i></a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <form action="Receipt.php" method="POST">
+  <form action="VerifyReceipt.php" method="POST">
     <div class="container">
       <div class="jumbotron" style="background: none; color: white;">
           <h1 align="center">ABC WXYZ Engineering College</h1>

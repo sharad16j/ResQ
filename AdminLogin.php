@@ -8,7 +8,7 @@
 
       $query = "SELECT * FROM admin WHERE Username = '$email' AND Password = '$pass'";
 
-      $data = mysqli_query($conn,$query);
+      $data = mysqli_query($connection,$query);
       $num = mysqli_num_rows($data);
       if($num != 0 )
       {
@@ -19,7 +19,7 @@
           $_SESSION['loggedIn'] = 'true';
           ?>
           <script>
-              window.location.href='AdminLogin.php';
+              window.location.href='Admin.php';
           </script>
           <?php
       }
@@ -54,7 +54,7 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-nav-demo">
           <ul class="nav navbar-nav">
-              <li><a href="Register.php">Register</a></li>
+              <!-- <li><a href="Register.php">Register</a></li> -->
               <li><a href="Search.php"><h3 style="display: inline;" class="fas fa-search"></h3></a></li>
           </ul>
         <ul class="nav navbar-nav navbar-right">
