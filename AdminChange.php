@@ -50,7 +50,7 @@
                     <label for="pword">Enter new Password</label>
                 </div>
                 <center><button class="btn btn2">Update <i class="fas fa-user-edit"></i></button></center>
-                <center><a href="AdminChange.php">Click here to go to Admin Page</a></center>
+                <center><a href="Admin.php">Click here to go to Admin Page</a></center>
         </form>
     </div>
     </div>
