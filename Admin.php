@@ -59,7 +59,7 @@
             <h4 align="center">Technocity, Panchpota, Garia, Kolkata - 700152, Phone: 1234567890</h4>
         </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-5 col-sm-offset-1">
         <form action="VerifyReceipt.php" method="POST">
                 <div class="input-field thumbnail">
                     <input id="rollno" name="rollno" type="text" required maxlength="11" minlength="11" data-length="11"  class="form-contol input">
@@ -69,7 +69,7 @@
                 <center><a href="AdminChange.php">Click here to change Admin username and/or password</a></center>
         </form>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-5 col-sm-offset-1">
         <div id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?>
         </div>
         <form class="form-inline" style="padding-top: 45px" action="" method="post" name="frmCSVImport" id="frmCSVImport" enctype="multipart/form-data">
@@ -80,7 +80,7 @@
                     <input type="file" name="file" id="file" accept=".csv" style="color: white;">
                 </div>
                 <!-- <br /> -->
-                <button type="submit" id="submit" name="import" class="btn btn1">Import</button>
+                <button type="submit" id="submit" name="import" class="btn btn1">Import <i class="fas fa-file-upload"></i></button>
             </div>
         </form>
     </div>

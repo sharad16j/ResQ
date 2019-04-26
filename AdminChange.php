@@ -39,7 +39,7 @@
             <h4 align="center">Technocity, Panchpota, Garia, Kolkata - 700152, Phone: 1234567890</h4>
         </div>
     </div>
-    <div class="col-sm-6 col-md-offset-3">
+    <div class="col-sm-6 col-sm-offset-3">
         <form action="#" method="POST">
                 <div class="input-field thumbnail">
                     <input id="uname" name="uname" type="text" class="form-contol input">
