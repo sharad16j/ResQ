@@ -5,8 +5,8 @@
         if ($_FILES["file"]["size"] > 0) {
             $file = fopen($fileName, "r");
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
-                $sqlInsert = "INSERT into std_detail (id,std_name,std_email,std_stream,std_number,std_id,std_regno,std_rollno)
-                    values ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "','" . $column[5] . "','" . $column[6] . "','" . $column[7] . "')";
+                $sqlInsert = "INSERT into users (userId,userName,password,firstName,lastName)
+                    values ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "')";
                 $result = mysqli_query($conn, $sqlInsert);
                 if (! empty($result)) {
                     $type = "success";
@@ -84,50 +84,38 @@
             </div>
         </form>
     </div>
-<div class="container">
 <?php
-    $sqlSelect = "SELECT * FROM std_detail";
+    $sqlSelect = "SELECT * FROM users";
     $result = mysqli_query($conn, $sqlSelect);
     if (mysqli_num_rows($result) > 0) {
 ?>
-        <div class="table-responsive" style="overflow-x: visible;">
-            <table id='userTable' style="color: white;" class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Stream</th>
-                        <th>Number</th>
-                        <th>stdID</th>
-                        <th>regno</th>
-                        <th>roll</th>
-                    </tr>
-                </thead>
+            <table id='userTable' class="thumbail">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+            </thead>
 <?php
-                while ($row = mysqli_fetch_array($result)) {
+            while ($row = mysqli_fetch_array($result)) {
 ?>                
-                    <tbody>
-                    <tr>
-                        <td><?php  echo $row['id']; ?></td>
-                        <td><?php  echo $row['std_name']; ?></td>
-                        <td><?php  echo $row['std_email']; ?></td>
-                        <td><?php  echo $row['std_stream']; ?></td>
-                        <td><?php  echo $row['std_number']; ?></td>
-                        <td><?php  echo $row['std_id']; ?></td>
-                        <td><?php  echo $row['std_regno']; ?></td>
-                        <td><?php  echo $row['std_rollno']; ?></td>
-                    </tr>
+            <tbody>
+            <tr>
+                <td><?php  echo $row['userId']; ?></td>
+                <td><?php  echo $row['userName']; ?></td>
+                <td><?php  echo $row['firstName']; ?></td>
+                <td><?php  echo $row['lastName']; ?></td>
+            </tr>
 <?php
-                }
+            }
 ?>
-                </tbody>
+            </tbody>
             </table>
-        </div>
 <?php
     }
 ?>
-</div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
