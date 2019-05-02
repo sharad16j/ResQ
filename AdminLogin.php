@@ -12,7 +12,6 @@
       $num = mysqli_num_rows($data);
       if($num != 0 )
       {
-          //  header('location : dashboard.php');
           $res = mysqli_fetch_assoc($data);
           $_SESSION['id'] = $res['ID'];
 
@@ -54,7 +53,6 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-nav-demo">
           <ul class="nav navbar-nav">
-              <!-- <li><a href="Register.php">Register</a></li> -->
               <li><a href="Search.php"><h3 style="display: inline;" class="fas fa-search"></h3></a></li>
           </ul>
         <ul class="nav navbar-nav navbar-right">

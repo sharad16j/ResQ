@@ -13,11 +13,11 @@
                 $result1 = mysqli_query($connection, $sqlInsert1);
                 if (! empty($result)) {
                     $type = "success";
-                    $message = "CSV Data Imported into the Database";
+                    $message = "<span style='color: lightgreen;'>CSV Data Imported into the Database</span>";
                 }
                 else {
                     $type = "error";
-                    $message = "Problem in Importing CSV Data";
+                    $message = "<span style='color: red;'>Problem in Importing CSV Data</span>";
                 }
             }
         }
