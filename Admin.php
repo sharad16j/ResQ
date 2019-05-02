@@ -1,17 +1,19 @@
 <?php
-    $conn = mysqli_connect("localhost", "root", "", "register");
+    include "connection.php";
     if (isset($_POST["import"])) {
+        mysqli_query($connection,"DELETE FROM `std_detail`");
         $fileName = $_FILES["file"]["tmp_name"];
         if ($_FILES["file"]["size"] > 0) {
             $file = fopen($fileName, "r");
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
-                $sqlInsert = "INSERT into std_detail (id,std_name,std_email,std_stream,std_number,std_id,std_regno,std_rollno)
-                    values ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "','" . $column[5] . "','" . $column[6] . "','" . $column[7] . "')";
-                $result = mysqli_query($conn, $sqlInsert);
+                $sqlInsert = "INSERT into std_detail (serial,std_name,std_email,std_number,std_id,std_regno,std_rollno)
+                    values ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "','" . $column[5] . "','" . $column[6] . "')";
+                $sqlInsert1 = "INSERT into receipt (serial,std_rollno) values('" . $column[0] . "','" . $column[6] . "')";
+                $result = mysqli_query($connection, $sqlInsert);
+                $result1 = mysqli_query($connection, $sqlInsert1);
                 if (! empty($result)) {
                     $type = "success";
                     $message = "CSV Data Imported into the Database";
-                    // echo "<script type='text/javascript'>alert('CSV Data Imported into the Database');</script>";
                 }
                 else {
                     $type = "error";
@@ -59,71 +61,68 @@
             <h4 align="center">Technocity, Panchpota, Garia, Kolkata - 700152, Phone: 1234567890</h4>
         </div>
     </div>
-    <div class="col-sm-5 col-sm-offset-1">
-        <form action="VerifyReceipt.php" method="POST">
-                <div class="input-field thumbnail">
-                    <input id="rollno" name="rollno" type="text" required maxlength="11" minlength="11" data-length="11"  class="form-contol input">
-                    <label for="rollno">Enter MAKAUT Roll Number</label>
-                </div>
-                <center><button class="btn btn3">Search <i class="fas fa-search"></i></button></center>
-                <center><a href="AdminChange.php">Click here to change Admin username and/or password</a></center>
-        </form>
-    </div>
-    <div class="col-sm-5 col-sm-offset-1">
-        <div id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?>
+        <div class="col-sm-5 col-sm-offset-1">
+            <form action="VerifyReceipt.php" method="POST">
+                    <div class="input-field thumbnail">
+                        <input id="rollno" name="rollno" type="text" required maxlength="11" minlength="11" data-length="11"  class="form-contol input">
+                        <label for="rollno">Enter MAKAUT Roll Number</label>
+                    </div>
+                    <center><button class="btn btn3">Search <i class="fas fa-search"></i></button></center>
+                    <center><a href="AdminChange.php">Click here to change Admin username and/or password</a></center>
+            </form>
         </div>
-        <form class="form-inline" style="padding-top: 45px" action="" method="post" name="frmCSVImport" id="frmCSVImport" enctype="multipart/form-data">
-            <div class="form-group">
-                <h2 style="color: white; display: inline;">Import CSV file into Database:</h2>
-                <label class="thumbnail sr-only">Choose CSV File:</label>
-                 <div class="input-group">
-                    <input type="file" name="file" id="file" accept=".csv" style="color: white;">
+        <div class="col-sm-5 col-sm-offset-1">
+            <div style="color: yellow;" id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?></div>
+            <form class="form-inline" style="padding-top: 45px" action="" method="post" name="frmCSVImport" id="frmCSVImport" enctype="multipart/form-data">
+                <div class="form-group">
+                    <h2 style="color: white; display: inline;">Import CSV file into Database:</h2>
+                    <label class="thumbnail sr-only">Choose CSV File:</label>
+                    <div class="input-group">
+                        <input type="file" name="file" id="file" accept=".csv" style="color: white;">
+                    </div>
+                    <button type="submit" id="submit" name="import" class="btn btn1">Import <i class="fas fa-file-upload"></i></button>
                 </div>
-                <!-- <br /> -->
-                <button type="submit" id="submit" name="import" class="btn btn1">Import <i class="fas fa-file-upload"></i></button>
-            </div>
-        </form>
-    </div>
-<div class="container">
+            </form>
+        </div>
+            <div class="container">
 <?php
-    $sqlSelect = "SELECT * FROM std_detail";
-    $result = mysqli_query($conn, $sqlSelect);
+    $sqlSelect = "SELECT * FROM std_detail ORDER BY serial";
+    $result = mysqli_query($connection, $sqlSelect);
     if (mysqli_num_rows($result) > 0) {
 ?>
-        <div class="table-responsive" style="overflow-x: visible;">
-            <table id='userTable' style="color: white;" class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Stream</th>
-                        <th>Number</th>
-                        <th>stdID</th>
-                        <th>regno</th>
-                        <th>roll</th>
-                    </tr>
-                </thead>
+                <div class="table-responsive" style="overflow-x: visible;">
+                    <table id='userTable' style="color: white;" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Serial No.</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Number</th>
+                                <th>Student ID</th>
+                                <th>Regstration No.</th>
+                                <th>Roll No.</th>
+                            </tr>
+                        </thead>
 <?php
                 while ($row = mysqli_fetch_array($result)) {
 ?>                
-                    <tbody>
-                    <tr>
-                        <td><?php  echo $row['id']; ?></td>
-                        <td><?php  echo $row['std_name']; ?></td>
-                        <td><?php  echo $row['std_email']; ?></td>
-                        <td><?php  echo $row['std_stream']; ?></td>
-                        <td><?php  echo $row['std_number']; ?></td>
-                        <td><?php  echo $row['std_id']; ?></td>
-                        <td><?php  echo $row['std_regno']; ?></td>
-                        <td><?php  echo $row['std_rollno']; ?></td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td><?php  echo $row['serial']; ?></td>
+                            <td><?php  echo $row['std_name']; ?></td>
+                            <td><?php  echo $row['std_email']; ?></td>
+                            <td><?php  echo $row['std_number']; ?></td>
+                            <td><?php  echo $row['std_id']; ?></td>
+                            <td><?php  echo $row['std_regno']; ?></td>
+                            <td><?php  echo $row['std_rollno']; ?></td>
+                        </tr>
 <?php
                 }
 ?>
-                </tbody>
-            </table>
-        </div>
+                        </tbody>
+                    </table>
+            </div>
+    </div>
 <?php
     }
 ?>
@@ -156,8 +155,8 @@
             var fileType = ".csv";
             var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + fileType + ")$");
             if (!regex.test($("#file").val().toLowerCase())) {
-                    $("#response").addClass("error");
-                    $("#response").addClass("display-block");
+                $("#response").addClass("error");
+                $("#response").addClass("display-block");
                 $("#response").html("Invalid File. Upload : <b>" + fileType + "</b> Files.");
                 return false;
             }

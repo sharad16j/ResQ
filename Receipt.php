@@ -1,15 +1,11 @@
 <?php
-include "connection.php";
-$roll_no=$_REQUEST["rollno"];
-session_start();
-$_SESSION['rollno'] = $roll_no;
-$fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
-
+    include "connection.php";
+    $roll_no=$_REQUEST["rollno"];
+    session_start();
+    $_SESSION['rollno'] = $roll_no;
+    $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
     while($res=mysqli_fetch_assoc($fetch)){
-
-      // session_start();
-     // $_SESSION['roll'] = $res['std_rollno'];
-      ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +48,7 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
         <h4 align="center">Money Receipt</h4>
     </div>
     <fieldset>
-        <form name="myform" action="receiptaction.php" method="POST" onsubmit="return formcheck() message()">
+        <form name="myform" action="receiptaction.php" method="POST" onsubmit="return formcheck()">
         <div class="boxDisabled">
             <div class="row">
                 <div class="col-sm-6">
@@ -151,8 +147,8 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
             </center>
           </div> 
           <fieldset>
-            <div class="row atLeastOne">
-              <div class="col-sm-6">
+            <div class="row">
+              <div class="col-sm-6 atLeastOne">
                 <label for="cb1" class="thumbnail col-xs-7 control-label">MAKAUT Development Fees:</label>
                 <div class="col-xs-5">
                   <input type="text" name="cb1" id="cb1" value="" placeholder="0"><br>
@@ -194,19 +190,19 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
                 <fieldset id="chkdd" class="col-xs-12">
                   <label class="thumbnail col-xs-5 control-label"  for="num">Cheque/DD number:</label>
                   <div class="col-xs-7">
-                    <input required="" name="num" value=" " type="text" id="num"><br>
+                    <input required="" name="num" value="" type="text" id="num"><br>
                   </div>
                   <label class="thumbnail col-xs-5 control-label"  for="bank">Issuing bank:</label>
                   <div class="col-xs-7">
-                    <input required="" name="bank" value=" " type="text" id="bank" onkeypress="return RUPEES(event,this);"><br>
+                    <input required="" name="bank" value="" type="text" id="bank" onkeypress="return RUPEES(event,this);"><br>
                   </div>
                   <label class="thumbnail col-xs-5 control-label"  for="branch">Bank branch:</label>
                   <div class="col-xs-7">
-                    <input required="" type="text" value=" " name="branch" id="branch" onkeypress="return RUPEES(event,this);"><br>
+                    <input required="" type="text" value="" name="branch" id="branch" onkeypress="return RUPEES(event,this);"><br>
                   </div>
                   <label class="thumbnail col-xs-5 control-label"  for="date">Cheque/DD date:</label>
                   <div class="col-xs-7">
-                    <input required="" name="date"  value=" " type="date" id="date">
+                    <input required="" name="date"  value="" type="date" id="date">
                   </div>
                 </fieldset>
               </div>
@@ -239,14 +235,13 @@ $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rol
             return false;
         }
         else{
-            if(confirm("Total amount to be paid = Rs. "+total))
-                return true;
+            if(confirm("Total amount to be paid = Rs. "+total) && confirm("Are you sure? If not, click cancel and make the necessary changes.")){
+                alert("Now go and submit your fees.");
+                return true;}
             else
                 return false;
         }
     }
-    function message()
-      alert("Want to continue?");
     $("#chkdd").prop('disabled', true);
     $("#chkdd").hide();
     $('select[name="payvia"]').change(function()

@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 	ob_start ();
 	include "connection.php";
 	session_start();
@@ -44,7 +43,7 @@
 	$pdf->Cell(0,5,'MONEY RECEIPT',0,1,'C');
 	$pdf->Cell(0,5,'Receipt No. :  ',0,1,'L');
 	$pdf->Cell(170,-6,'Date:' ,0,1,'R');
-=======
+
 ob_start ();
 include "connection.php";
 session_start();
@@ -131,7 +130,6 @@ $pdf->Cell(0,-10,"{$total}  ",0,1,'C');
 $pdf->Cell(0,10,"",1,1,'R');
 if($payvia =="chkdd")	
 {
->>>>>>> 5055583ab802be7f4a2e67da61a8decb31d5c9a7
 	$pdf->ln(8);
 	$pdf->Line(80,173,80,212);
 	$pdf->Cell(0,10,"Cheque/DD no  ",1,1,'L');
@@ -146,7 +144,7 @@ if($payvia =="chkdd")
 	$pdf->Cell(0,10,"Date ",1,1,'L');
 	$pdf->Cell(0,-10,"{$date}  ",0,1,'C');
 	$pdf->Cell(0,10,"",1,1,'R');
-<<<<<<< HEAD
+
 	$pdf->Cell(0,10,"MAKAUT PPR/PPS   ",1,1,'L');
 	$pdf->Cell(0,-10,"{$cb4}  ",0,1,'C');
 	$pdf->Cell(0,10,"",1,1,'R');
@@ -188,7 +186,6 @@ if($payvia =="chkdd")
 	$pdf->Cell(0,5,"iii)Fees once paid would not be refunded at any cost",0,1,'L');
 	$pdf->output();
 	ob_end_flush();
-=======
 	$pdf->Cell(0,-50,"",0,1,'C');
 }
 $pdf->Line(80,85,80,165);
@@ -201,5 +198,4 @@ $pdf->Cell(0,5,"and incidental loss of percentage and other complication ",0,1,'
 $pdf->Cell(0,5,"iii)Fees once paid would not be refunded at any cost",0,1,'L');
 $pdf->output();
 ob_end_flush();
->>>>>>> 5055583ab802be7f4a2e67da61a8decb31d5c9a7
 ?> 
