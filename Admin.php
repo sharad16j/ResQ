@@ -1,27 +1,29 @@
 <?php
     include "connection.php";
-    if (isset($_POST["import"])) {
-        mysqli_query($connection,"DELETE FROM `std_detail`");
-        $fileName = $_FILES["file"]["tmp_name"];
-        if ($_FILES["file"]["size"] > 0) {
-            $file = fopen($fileName, "r");
-            while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
-                $sqlInsert = "INSERT into std_detail (serial,std_name,std_email,std_number,std_id,std_regno,std_rollno)
-                    values ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "','" . $column[5] . "','" . $column[6] . "')";
-                $sqlInsert1 = "INSERT into receipt (serial,std_rollno) values('" . $column[0] . "','" . $column[6] . "')";
-                $result = mysqli_query($connection, $sqlInsert);
-                $result1 = mysqli_query($connection, $sqlInsert1);
-                if (! empty($result)) {
-                    $type = "success";
-                    $message = "<span style='color: lightgreen;'>CSV Data Imported into the Database</span>";
-                }
-                else {
-                    $type = "error";
-                    $message = "<span style='color: red;'>Problem in Importing CSV Data</span>";
+    session_start();
+    if(isset($_SESSION['id'])){
+        if (isset($_POST["import"])) {
+            mysqli_query($connection,"DELETE FROM `std_detail`");
+            $fileName = $_FILES["file"]["tmp_name"];
+            if ($_FILES["file"]["size"] > 0) {
+                $file = fopen($fileName, "r");
+                while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
+                    $sqlInsert = "INSERT into std_detail (serial,std_name,std_email,std_number,std_id,std_regno,std_rollno)
+                        values ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "','" . $column[5] . "','" . $column[6] . "')";
+                    $sqlInsert1 = "INSERT into receipt (serial,std_rollno) values('" . $column[0] . "','" . $column[6] . "')";
+                    $result = mysqli_query($connection, $sqlInsert);
+                    $result1 = mysqli_query($connection, $sqlInsert1);
+                    if (! empty($result)) {
+                        $type = "success";
+                        $message = "<span style='color: lightgreen;'>CSV Data Imported into the Database</span>";
+                    }
+                    else {
+                        $type = "error";
+                        $message = "<span style='color: red;'>Problem in Importing CSV Data</span>";
+                    }
                 }
             }
         }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -166,3 +168,14 @@
     </script>
 </body>
 </html>
+<?php	
+	}
+	else
+	{
+?>
+<script>
+    window.location.href='AdminLogin.php';
+</script>
+<?php
+	}
+?>
