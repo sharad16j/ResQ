@@ -174,6 +174,7 @@
 	{
 ?>
 <script>
+      alert("You are logged out, so please login.");
     window.location.href='AdminLogin.php';
 </script>
 <?php

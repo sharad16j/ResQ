@@ -1,18 +1,19 @@
 <?php
     include "connection.php";
-    $roll_no=$_REQUEST["rollno"];
-    session_start();
-    $_SESSION['rollno'] = $roll_no;
-    $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
-    $fetch1=mysqli_query($connection,"select * from receipt where std_rollno='$roll_no' ");
-    while($res=mysqli_fetch_assoc($fetch)){
-      $_SESSION['roll'] = $res['std_rollno'];
-      while($res1=mysqli_fetch_assoc($fetch1)){
+    if(isset($_REQUEST["rollno"])){
+      $roll_no=$_REQUEST["rollno"];
+      session_start();
+      $_SESSION['rollno'] = $roll_no;
+      $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
+      $fetch1=mysqli_query($connection,"select * from receipt where std_rollno='$roll_no' ");
+      while($res=mysqli_fetch_assoc($fetch)){
+        $_SESSION['roll'] = $res['std_rollno'];
+        while($res1=mysqli_fetch_assoc($fetch1)){
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Verify nhgfnfh Receipt</title>
+  <title>Verify Receipt</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -265,5 +266,16 @@
 </body>
 </html>
 <?php
-    }}
+        }
+      }
+    }
+    else
+    {
+?>
+    <script>
+      alert("Search by entering roll number in Admin Page.");
+      window.location.href='Admin.php';
+    </script>
+<?php
+    }
 ?>

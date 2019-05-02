@@ -1,5 +1,7 @@
 <?php
-    $conn = mysqli_connect("localhost", "root", "", "register");
+    require 'connection.php';
+    session_start();
+    if(isset($_SESSION['id'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,3 +60,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>
+<?php	
+	}
+	else
+	{
+?>
+<script>
+      alert("You are logged out, so please login.");
+    window.location.href='AdminLogin.php';
+</script>
+<?php
+	}
+?>
