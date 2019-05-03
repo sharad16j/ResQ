@@ -24,7 +24,12 @@
       }
       else
       {
-          echo "<span style='color:red;'>Invalid Credentials</span>";
+          // echo "<span style='color:red;'>Invalid Credentials</span>";
+?>
+          <script>
+            alert("Enter correct username and password.");
+          </script>
+<?php
       }
   }
 ?>

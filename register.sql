@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 26, 2019 at 03:19 PM
+-- Generation Time: May 03, 2019 at 01:22 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -48,7 +48,7 @@ INSERT INTO `admin` (`ID`, `Username`, `Password`) VALUES
 --
 
 CREATE TABLE `receipt` (
-  `id` int(11) NOT NULL,
+  `serial` varchar(10) NOT NULL,
   `std_rollno` bigint(50) NOT NULL,
   `stream` varchar(50) NOT NULL,
   `semester` varchar(50) NOT NULL,
@@ -75,29 +75,14 @@ CREATE TABLE `receipt` (
 --
 
 CREATE TABLE `std_detail` (
-  `id` int(11) NOT NULL,
+  `serial` varchar(8) NOT NULL,
   `std_name` varchar(50) NOT NULL,
   `std_email` varchar(50) NOT NULL,
-  `std_stream` varchar(30) NOT NULL,
   `std_number` bigint(15) NOT NULL,
   `std_id` bigint(15) NOT NULL,
   `std_regno` bigint(15) NOT NULL,
   `std_rollno` bigint(15) NOT NULL
 ) ENGINE=MEMORY DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `userId` int(8) NOT NULL,
-  `userName` varchar(55) NOT NULL,
-  `password` varchar(55) NOT NULL,
-  `firstName` varchar(255) NOT NULL,
-  `lastName` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -113,14 +98,14 @@ ALTER TABLE `admin`
 -- Indexes for table `receipt`
 --
 ALTER TABLE `receipt`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`serial`),
   ADD UNIQUE KEY `std_rollno` (`std_rollno`);
 
 --
 -- Indexes for table `std_detail`
 --
 ALTER TABLE `std_detail`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`serial`),
   ADD UNIQUE KEY `std_id` (`std_id`),
   ADD UNIQUE KEY `std_rollno` (`std_rollno`),
   ADD UNIQUE KEY `std_regno` (`std_regno`);
@@ -134,18 +119,6 @@ ALTER TABLE `std_detail`
 --
 ALTER TABLE `admin`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `receipt`
---
-ALTER TABLE `receipt`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `std_detail`
---
-ALTER TABLE `std_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
