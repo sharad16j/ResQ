@@ -45,7 +45,7 @@
     <div class="jumbotron" style="background: none; color: white;">
         <h3 align="center" style="text-shadow: 1px 1px;">STUDENT COPY</h3>
         <h1 align="center">ABC WXYZ Engineering College</h1>
-        <h4 align="center">Technocity, Panchpota, Garia, Kolkata - 700152, Phone: 1234567890</h4>
+        <h4 align="center">QQQQ, WWWW, YYYY, India - 999999, Phone: 1234567890</h4>
         <h4 align="center">Money Receipt</h4>
     </div>
     <fieldset>
@@ -78,14 +78,14 @@
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="thumbnail">
-                        <label for="regno">MAKAUT Registration Number: </label>
-                        <input disabled required maxlength="12" data-length="12" type="text" class="form-control input" id="regno" name="regno" placeholder="Enter MAKAUT registration no..." value="<?php  echo $res['std_regno']?>">
+                        <label for="regno">Registration Number: </label>
+                        <input disabled required maxlength="12" data-length="12" type="text" class="form-control input" id="regno" name="regno" placeholder="Enter registration no..." value="<?php  echo $res['std_regno']?>">
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="thumbnail">
-                        <label for="rollno">MAKAUT Roll Number: </label>
-                        <input disabled required maxlength="11" data-length="11" type="text" class="form-control input" id="rollno" name="rollno" placeholder="Enter MAKAUT roll no..." value="<?php  echo $res['std_rollno']?>">
+                        <label for="rollno">Roll Number: </label>
+                        <input disabled required maxlength="11" data-length="11" type="text" class="form-control input" id="rollno" name="rollno" placeholder="Enter roll no..." value="<?php  echo $res['std_rollno']?>">
                     </div>
                 </div>
               </div>
@@ -150,30 +150,30 @@
           <fieldset>
             <div class="row">
               <div class="col-sm-6 atLeastOne">
-                <label for="cb1" class="thumbnail col-xs-7 control-label">MAKAUT Development Fees:</label>
+                <label for="cb1" class="thumbnail col-xs-7 control-label">Development Fees:</label>
                 <div class="col-xs-5">
                   <input type="text" name="cb1" id="cb1" value="" placeholder="0"><br>
                 </div>
-                <label for="cb2" class="thumbnail col-xs-7 control-label">MAKAUT Registration Fees:</label>
+                <label for="cb2" class="thumbnail col-xs-7 control-label">Registration Fees:</label>
                 <div class="col-xs-5">
                   <input type="text" name="cb2" id="cb2" value="" placeholder="0"><br>
                 </div>
-                <label for="cb3" class="thumbnail col-xs-7 control-label">MAKAUT Exam Fees:</label>
+                <label for="cb3" class="thumbnail col-xs-7 control-label">Exam Fees:</label>
                 <div class="col-xs-5">
                   <input type="text" name="cb3" id="cb3" value="" placeholder="0"><br>
                 </div>
-                <label for="cb4" class="thumbnail col-xs-7 control-label">MAKAUT PPR/PPS:</label>
+                <label for="cb4" class="thumbnail col-xs-7 control-label">PPR/PPS:</label>
                 <div class="col-xs-5">
                   <input type="text" name="cb4" id="cb4" value="" placeholder="0"><br>
                 </div>
-                <label for="cb5" class="thumbnail col-xs-7 control-label">MAKAUT Back Log:</label>
+                <label for="cb5" class="thumbnail col-xs-7 control-label">Back Log:</label>
                 <div class="col-xs-5">
                   <input type="text" name="cb5" id="cb5" value="" placeholder="0"><br>
                 </div>
                 <label for="cb6" class="thumbnail col-xs-7 control-label">Other:</label>
                 <div class="col-xs-5">
                   <input type="text" name="cb6" id="cb6" value="" placeholder="0"><br>
-                </div>
+                </div>                 
               </div>
 
               <div class="col-sm-6">

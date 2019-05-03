@@ -36,11 +36,11 @@
     <div class="container">
       <div class="jumbotron" style="background: none; color: white;">
           <h1 align="center">ABC WXYZ Engineering College</h1>
-          <h4 align="center">Technocity, Panchpota, Garia, Kolkata - 700152, Phone: 1234567890</h4>
+          <h4 align="center">QQQQ, WWWW, YYYY, India - 999999, Phone: 1234567890</h4>
       </div>
         <div class="input-field thumbnail col-xs-8 col-xs-offset-2">
                 <input id="rollno" name="rollno" type="text" required maxlength="11" minlength="11" data-length="11"  class="form-contol input">
-                <label for="rollno">Enter MAKAUT Roll Number</label>
+                <label for="rollno">Enter Roll Number</label>
         </div>
     </div>
     <center><button class="btn btn3">Search <i class="fas fa-search"></i></button></center>

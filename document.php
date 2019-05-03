@@ -41,12 +41,11 @@
 	$pdf->Cell(0,5,'TECHNOCITY,PANCHPOTA,GARIA,KOLKATA-700152,PHONE:xxxxxxxxxxxxxx',2,1,'C');
 	$pdf->SetFont('Arial','B',13);
 	$pdf->Cell(0,5,'MONEY RECEIPT',0,1,'C');
-	$pdf->Cell(0,5,'Receipt No. :  ',0,1,'L');
-	$pdf->Cell(170,-6,'Date:' ,0,1,'R');
+	$pdf->Cell(0,5,'  ',0,1,'L');
+	$pdf->Cell(170,-6,'' ,0,1,'R');
 
 ob_start ();
-include "connection.php";
-session_start();
+
 $rollno = $_SESSION['roll'];
 $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rollno' ");
 while($res=mysqli_fetch_assoc($fetch)){
@@ -74,7 +73,6 @@ $bank=$eas['bank'];
 $branch=$eas['branch'];
 $date=$eas['dateofissue'];}
 $comments=$eas['comments'];}
-require('fpdf/fpdf.php');
 $pdf = new FPDF('P','mm','A4');
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',13);
@@ -84,8 +82,8 @@ $pdf->SetFont('Arial','B',10);
 $pdf->Cell(0,5,'TECHNOCITY,PANCHPOTA,GARIA,KOLKATA-700152,PHONE:xxxxxxxxxxxxxx',2,1,'C');
 $pdf->SetFont('Arial','B',13);
 $pdf->Cell(0,5,'MONEY RECEIPT',0,1,'C');
-$pdf->Cell(0,5,'Receipt No. :  ',0,1,'L');
-$pdf->Cell(170,-6,'Date:' ,0,1,'R');
+$pdf->Cell(0,5,'',0,1,'L');
+$pdf->Cell(170,-6,'' ,0,1,'R');
 $pdf->ln(8);
 $pdf->SetFont('Arial','B',13);
 $pdf->Cell(0,8,"Student's Name :- {$name}",0,1,'L');

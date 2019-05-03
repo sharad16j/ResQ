@@ -38,7 +38,7 @@
     <div class="container">
         <div class="jumbotron" style="background: none; color: white;">
             <h1 align="center">ABC WXYZ Engineering College</h1>
-            <h4 align="center">Technocity, Panchpota, Garia, Kolkata - 700152, Phone: 1234567890</h4>
+            <h4 align="center">QQQQ, WWWW, YYYY, India - 999999, Phone: 1234567890</h4>
         </div>
     </div>
     <div class="col-sm-6 col-sm-offset-3">

@@ -48,7 +48,7 @@
     <div class="jumbotron" style="background: none; color: white;">
         <h3 align="center" style="text-shadow: 1px 1px;">STUDENT COPY</h3>
         <h1 align="center">ABC WXYZ Engineering College</h1>
-        <h4 align="center">Technocity, Panchpota, Garia, Kolkata - 700152, Phone: 1234567890</h4>
+        <h4 align="center">QQQQ, WWWW, YYYY, India - 999999, Phone: 1234567890</h4>
         <h4 align="center">Money Receipt</h4>
     </div>
     <form name="myform" action="document.php" method="POST" onsubmit="return formcheck()">
@@ -81,14 +81,14 @@
               </div>
               <div class="col-sm-6 col-lg-3">
                   <div class="thumbnail">
-                      <label for="regno">MAKAUT Registration Number: </label>
-                      <input disabled required maxlength="12" data-length="12" type="text" class="form-control input" id="regno" name="regno" placeholder="Enter MAKAUT registration no..." value="<?php  echo $res['std_regno']?>">
+                      <label for="regno">Registration Number: </label>
+                      <input disabled required maxlength="12" data-length="12" type="text" class="form-control input" id="regno" name="regno" placeholder="Enter registration no..." value="<?php  echo $res['std_regno']?>">
                   </div>
               </div>
               <div class="col-sm-6 col-lg-3">
                   <div class="thumbnail">
-                      <label for="rollno">MAKAUT Roll Number: </label>
-                      <input disabled required maxlength="11" data-length="11" type="text" class="form-control input" id="rollno" name="rollno" placeholder="Enter MAKAUT roll no..." value="<?php  echo $res['std_rollno']?>">
+                      <label for="rollno">Roll Number: </label>
+                      <input disabled required maxlength="11" data-length="11" type="text" class="form-control input" id="rollno" name="rollno" placeholder="Enter roll no..." value="<?php  echo $res['std_rollno']?>">
                   </div>
               </div>
             </div>
@@ -122,30 +122,30 @@
             <div class="thumbnail">
               <center>
                 <label for="rupees">Received a sum of Rupees:</label>
-                <input disabled required onkeypress="return RUPEES(event,this);" type="text" name="rupees" id="rupees" placeholder="Amount in words..">
+                <input disabled required onkeypress="return RUPEES(event,this);" type="text" name="rupees" id="rupees" value="<?php  echo $res1['sumofrupee']?>" placeholder="Amount in words..">
               </center>
             </div> 
             <fieldset>
               <div class="row">
                 <div class="atLeastOne">
                   <div class="col-sm-6">
-                    <label for="cb1" class="thumbnail col-xs-7 control-label">MAKAUT Development Fees:</label>
+                    <label for="cb1" class="thumbnail col-xs-7 control-label">Development Fees:</label>
                     <div class="col-xs-5">
                       <input disabled type="text" name="cb1" id="cb1" value="<?php  echo $res1['dfees']?>" placeholder="0"><br>
                     </div>
-                    <label for="cb2" class="thumbnail col-xs-7 control-label">MAKAUT Registration Fees:</label>
+                    <label for="cb2" class="thumbnail col-xs-7 control-label">Registration Fees:</label>
                     <div class="col-xs-5">
                       <input disabled type="text" name="cb2" id="cb2" value="<?php  echo $res1['rfees']?>" placeholder="0"><br>
                     </div>
-                    <label for="cb3" class="thumbnail col-xs-7 control-label">MAKAUT Exam Fees:</label>
+                    <label for="cb3" class="thumbnail col-xs-7 control-label">Exam Fees:</label>
                     <div class="col-xs-5">
                       <input disabled type="text" name="cb3" id="cb3" value="<?php  echo $res1['efees']?>" placeholder="0"><br>
                     </div>
-                    <label for="cb4" class="thumbnail col-xs-7 control-label">MAKAUT PPR/PPS:</label>
+                    <label for="cb4" class="thumbnail col-xs-7 control-label">PPR/PPS:</label>
                     <div class="col-xs-5">
                       <input disabled type="text" name="cb4" id="cb4" value="<?php  echo $res1['ppfee']?>" placeholder="0"><br>
                     </div>
-                    <label for="cb5" class="thumbnail col-xs-7 control-label">MAKAUT Back Log:</label>
+                    <label for="cb5" class="thumbnail col-xs-7 control-label">Back Log:</label>
                     <div class="col-xs-5">
                       <input disabled type="text" name="cb5" id="cb5" value="<?php  echo $res1['backlog']?>" placeholder="0"><br>
                     </div>
@@ -155,22 +155,15 @@
                     </div>
                   </div>
                 </div>
-               <?php 
-               $payvia = $res1['payvia'];
-               if($payvia=="chkdd"){ ?>
 
 
-               <!--  <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                   <label for="payvia" class="thumbnail col-xs-4 control-label" for="payvia">Select payment method-</label>
                   <div class="col-xs-8">
                     <div class="thumbnail">
-                      <select required name="payvia" id="payvia" class="form-control input">
-                        <option name="select4" value="chkdd" disabled="disabled" selected="selected">select method</option>
-                        <option value="Cash">Cash</option>
-                        <option select="selected" value="chkdd">Cheque or Demand Draft</option>
-                      </select>
+                      <input disabled type="text" name="cb6" id="cb6" value="" placeholder="0"><br>
                     </div>
-                  </div> -->
+                  </div>
                   <fieldset id="chkdd" class="col-xs-12">
                     <label class="thumbnail col-xs-5 control-label"  for="num">Cheque/DD number:</label>
                     <div class="col-xs-7">
@@ -187,18 +180,23 @@
                     <label class="thumbnail col-xs-5 control-label"  for="date">Cheque/DD date:</label>
                     <div class="col-xs-7">
                       <input disabled required="" name="date" type="date" id="date">
+                    </div> -->
+                  <fieldset class="col-xs-6">
+                    <div class="col-xs-8">
+                      <label class="thumbnail" for="Comments">Comments:</label>
+                      <textarea disabled name="Comments" id="Comments" placeholder="Write number printed on notes (if asked)." style="height:100px; width: 100%;"></textarea><br>
                     </div>
                   </fieldset>
+                  </fieldset>
+               <?php 
+                  $payvia = $res1['payvia'];
+                  if($payvia=="chkdd"){}
+                ?>
                 </div>
               </div>
             </fieldset>
-         <?php } ?>
-            <div class="col-xs-4">
+            <div class="col-xs-12">
                 <center><button class="btn btn1">Verify</button></center>
-            </div>
-            <div class="col-xs-8">
-              <label class="thumbnail" for="Comments">Comments:</label>
-              <textarea disabled name="Comments" id="Comments" placeholder="Write number printed on notes (if asked)." style="height:100px; width: 100%;"></textarea><br>
             </div>
           </div>
       </div>
@@ -208,25 +206,25 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script>
-    function formcheck(){
-        var total=0;
-        var fields = $(".atLeastOne")
-        .find("input").serializeArray();
-        $.each(fields, function(i, field) {
-            if (field.value!="")
-                total=total+parseInt(field.value);
-        }); 
-        if(total==0){
-            alert("Please fill the amount of fees that you want to pay, in the respective fields.");
-            return false;
-        }
-        else{
-            if(confirm("Total amount to be paid = Rs. "+total))
-                return true;
-            else
-                return false;
-        }
-    }
+    // function formcheck(){
+    //     var total=0;
+    //     var fields = $(".atLeastOne")
+    //     .find("input").serializeArray();
+    //     $.each(fields, function(i, field) {
+    //         if (field.value!="")
+    //             total=total+parseInt(field.value);
+    //     }); 
+    //     if(total==0){
+    //         alert("Please fill the amount of fees that you want to pay, in the respective fields.");
+    //         return false;
+    //     }
+    //     else{
+    //         if(confirm("Total amount to be paid = Rs. "+total))
+    //             return true;
+    //         else
+    //             return false;
+    //     }
+    // }
     $("#chkdd").prop('disabled', true);
     $("#chkdd").hide();
     $('select[name="payvia"]').change(function()
