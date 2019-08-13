@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 03, 2019 at 08:28 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: Aug 13, 2019 at 05:10 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,6 +44,29 @@ INSERT INTO `admin` (`ID`, `Username`, `Password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `fees_detail`
+--
+
+CREATE TABLE `fees_detail` (
+  `dfees` int(50) NOT NULL,
+  `rfees` int(11) NOT NULL,
+  `efees` int(11) NOT NULL,
+  `ppr` int(11) NOT NULL,
+  `backlog` int(11) NOT NULL,
+  `other` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fees_detail`
+--
+
+INSERT INTO `fees_detail` (`dfees`, `rfees`, `efees`, `ppr`, `backlog`, `other`) VALUES
+(1200, 1000, 1300, 1400, 1500, 1600),
+(1200, 1000, 1300, 1400, 1500, 1600);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `receipt`
 --
 
@@ -66,7 +89,7 @@ CREATE TABLE `receipt` (
   `bank` varchar(50) DEFAULT NULL,
   `branch` varchar(50) DEFAULT NULL,
   `dateofissue` date DEFAULT NULL
-) ENGINE=MEMORY DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -82,7 +105,7 @@ CREATE TABLE `std_detail` (
   `std_id` bigint(15) NOT NULL,
   `std_regno` bigint(15) NOT NULL,
   `std_rollno` bigint(15) NOT NULL
-) ENGINE=MEMORY DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
