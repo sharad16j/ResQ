@@ -152,34 +152,34 @@
                     <label for="cb6" class="thumbnail col-xs-7 control-label">Other:</label>
                     <div class="col-xs-5">
                       <input disabled type="text" name="cb6" id="cb6" value="<?php  echo $res1['other']?>" placeholder="0"><br>
-                    </div>
+                    </div>payvia
                   </div>
                 </div>
 
 
-                <!-- <div class="col-sm-6">
+                <div class="col-sm-6">
                   <label for="payvia" class="thumbnail col-xs-4 control-label" for="payvia">Select payment method-</label>
                   <div class="col-xs-8">
                     <div class="thumbnail">
-                      <input disabled type="text" name="cb6" id="cb6" value="" placeholder="0"><br>
+                      <input disabled type="text" name="cb6" id="cb6" value="<?php  echo $res1['payvia']?>" placeholder="0"><br>
                     </div>
                   </div>
                   <fieldset id="chkdd" class="col-xs-12">
                     <label class="thumbnail col-xs-5 control-label"  for="num">Cheque/DD number:</label>
                     <div class="col-xs-7">
-                      <input disabled required="" name="num"  type="text" id="num"><br>
+                      <input disabled required="" name="num"  type="text" value="<?php  echo $res1['checkno']?>"id="num"><br>
                     </div>
                     <label class="thumbnail col-xs-5 control-label"  for="bank">Issuing bank:</label>
                     <div class="col-xs-7">
-                      <input disabled required="" name="bank" type="text" id="bank" onkeypress="return RUPEES(event,this);"><br>
+                      <input disabled required="" name="bank" type="text" value="<?php  echo $res1['bank']?>" id="bank" onkeypress="return RUPEES(event,this);"><br>
                     </div>
                     <label class="thumbnail col-xs-5 control-label"  for="branch">Bank branch:</label>
                     <div class="col-xs-7">
-                      <input disabled required="" type="text" name="branch" id="branch" onkeypress="return RUPEES(event,this);"><br>
+                      <input disabled required="" type="text" name="branch" value="<?php  echo $res1['branch']?>" id="branch" onkeypress="return RUPEES(event,this);"><br>
                     </div>
                     <label class="thumbnail col-xs-5 control-label"  for="date">Cheque/DD date:</label>
                     <div class="col-xs-7">
-                      <input disabled required="" name="date" type="date" id="date">
+                      <input disabled required="" name="date" type="date" value="<?php  echo $res1['dateofissue']?>" id="date">
                     </div> -->
                   <fieldset class="col-xs-6">
                     <div class="col-xs-8">
@@ -225,8 +225,16 @@
     //             return false;
     //     }
     // }
-    $("#chkdd").prop('disabled', true);
-    $("#chkdd").hide();
+    if($payvia=='checkdd')
+    {
+      $("#chkdd").prop('disabled', true);
+      $("#chkdd").show();
+    }
+    else
+    {
+      $("#chkdd").prop('disabled', true);
+      $("#chkdd").hide();
+    }
     $('select[name="payvia"]').change(function()
     {
       if ($(this).val() == "Cash")

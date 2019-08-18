@@ -142,38 +142,7 @@ if($payvia =="chkdd")
 	$pdf->Cell(0,10,"Date ",1,1,'L');
 	$pdf->Cell(0,-10,"{$date}  ",0,1,'C');
 	$pdf->Cell(0,10,"",1,1,'R');
-
-	$pdf->Cell(0,10,"MAKAUT PPR/PPS   ",1,1,'L');
-	$pdf->Cell(0,-10,"{$cb4}  ",0,1,'C');
-	$pdf->Cell(0,10,"",1,1,'R');
-	$pdf->Cell(0,10,"MAKAUT Back Log   ",1,1,'L');
-	$pdf->Cell(0,-10,"{$cb5} ",0,1,'C');
-	$pdf->Cell(0,10,"",1,1,'R');
-	$pdf->Cell(0,10,"Other  ",1,1,'L');
-	$pdf->Cell(0,-10,"{$cb6}  ",0,1,'C');
-	$pdf->Cell(0,10,"",1,1,'R');
-	$pdf->Cell(0,10,"Total   ",1,1,'L');
-	$total=$cb1+$cb2+$cb3+$cb4+$cb5+$cb6 ;
-	$pdf->Cell(0,-10,"{$total}  ",0,1,'C');
-	$pdf->Cell(0,10,"",1,1,'R');
-	if($payvia =="chkdd")	
-	{
-		$pdf->ln(8);
-		$pdf->Line(80,173,80,212);
-		$pdf->Cell(0,10,"Cheque/DD no  ",1,1,'L');
-		$pdf->Cell(0,-10,"{$num} ",0,1,'C');
-		$pdf->Cell(0,10,"",1,1,'R');
-		$pdf->Cell(0,10,"Issuing Bank",1,1,'L');
-		$pdf->Cell(0,-10,"{$bank} ",0,1,'C');
-		$pdf->Cell(0,10,"",1,1,'R');
-		$pdf->Cell(0,10,"Bank Branch",1,1,'L');
-		$pdf->Cell(0,-10,"{$branch}  ",0,1,'C');
-		$pdf->Cell(0,10,"",1,1,'R');
-		$pdf->Cell(0,10,"Date ",1,1,'L');
-		$pdf->Cell(0,-10,"{$date}  ",0,1,'C');
-		$pdf->Cell(0,10,"",1,1,'R');
-		$pdf->Cell(0,-50,"",0,1,'C');
-	}
+	$pdf->Cell(0,-50,"",0,1,'C');
 	$pdf->Line(80,85,80,165);
 	$pdf->Cell(0,90,"{$comments}",0,1,'L');
 	$pdf->Line(10,250,200,250);
@@ -184,7 +153,6 @@ if($payvia =="chkdd")
 	$pdf->Cell(0,5,"iii)Fees once paid would not be refunded at any cost",0,1,'L');
 	$pdf->output();
 	ob_end_flush();
-	$pdf->Cell(0,-50,"",0,1,'C');
 }
 $pdf->Line(80,85,80,165);
 $pdf->Cell(0,90,"{$comments}",0,1,'L');
