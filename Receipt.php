@@ -1,11 +1,16 @@
 <?php
     include "connection.php";
-    if(isset($_REQUEST["rollno"])){
+    if(isset($_REQUEST["rollno"]))
+    {
       $roll_no=$_REQUEST["rollno"];
       session_start();
       $_SESSION['rollno'] = $roll_no;
       $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
-      while($res=mysqli_fetch_assoc($fetch)){
+      $fetch1=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
+      if(mysqli_fetch_assoc($fetch1))
+      {
+        while($res=mysqli_fetch_assoc($fetch))
+        {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -293,15 +298,16 @@
 </body>
 </html>
  <?php 
+        }
       }
-    }
-    else
-    {
+      else
+      {
 ?>
-    <script>
-      alert("Search by entering roll number in Search Page.");
-      window.location.href='Search.php';
-    </script>
+      <script>
+        alert("Search by entering correct roll number in Search Page.");
+        window.location.href='Search.php';
+      </script>
 <?php
+      }
     }
 ?>

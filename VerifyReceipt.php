@@ -6,7 +6,8 @@
       $_SESSION['rollno'] = $roll_no;
       $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
       $fetch1=mysqli_query($connection,"select * from receipt where std_rollno='$roll_no' ");
-      if(mysqli_fetch_assoc($fetch))
+      $fetch2=mysqli_query($connection,"select * from receipt where std_rollno='$roll_no' ");
+      if(mysqli_fetch_assoc($fetch2))
       {
         while($res=mysqli_fetch_assoc($fetch)){
           $_SESSION['roll'] = $res['std_rollno'];
@@ -287,15 +288,15 @@
 <?php
           }
         }
-    }
-    else
-    {
+      }
+      else
+      {
 ?>
-    <script>
-      alert("Search by entering correct roll number in Admin Page.");
-      window.location.href='Admin.php';
-    </script>
+      <script>
+        alert("Search by entering correct roll number in Admin Page.");
+        window.location.href='Admin.php';
+      </script>
 <?php
+      }
     }
-  }
 ?>
