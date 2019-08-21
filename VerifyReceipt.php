@@ -6,9 +6,11 @@
       $_SESSION['rollno'] = $roll_no;
       $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
       $fetch1=mysqli_query($connection,"select * from receipt where std_rollno='$roll_no' ");
-      while($res=mysqli_fetch_assoc($fetch)){
-        $_SESSION['roll'] = $res['std_rollno'];
-        while($res1=mysqli_fetch_assoc($fetch1)){
+      if(mysqli_fetch_assoc($fetch))
+      {
+        while($res=mysqli_fetch_assoc($fetch)){
+          $_SESSION['roll'] = $res['std_rollno'];
+            while($res1=mysqli_fetch_assoc($fetch1)){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -283,16 +285,17 @@
 </body>
 </html>
 <?php
+          }
         }
-      }
     }
     else
     {
 ?>
     <script>
-      alert("Search by entering roll number in Admin Page.");
+      alert("Search by entering correct roll number in Admin Page.");
       window.location.href='Admin.php';
     </script>
 <?php
     }
+  }
 ?>
