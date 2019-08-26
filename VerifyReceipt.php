@@ -228,10 +228,10 @@
     //     }
     // }
     <?php
-    if($payvia=='checkkdd')
+    if($payvia=='chkdd')
     {
     ?>
-        $("#chkdd").prop('disabled', true);
+        $("#chkdd").prop('disabled', false);
         $("#chkdd").show();
     <?php
     }
