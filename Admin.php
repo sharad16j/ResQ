@@ -47,7 +47,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="Receipt.php" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> IMAGE</a>
+        <a href="About.html" class="navbar-brand"><i class="fas fa-user-friends"></i> About</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-nav-demo">
         <ul class="nav navbar-nav navbar-right">

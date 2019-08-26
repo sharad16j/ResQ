@@ -19,12 +19,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="searchaction.php" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> IMAGE</a>
+        <a href="About.php" class="navbar-brand"><i class="fas fa-user-friends"></i> About</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-nav-demo">
           <ul class="nav navbar-nav">
               <!-- <li><a href="Register.php">Register</a></li> -->
-              <li class="active"><a href="Search.php"><h3 style="display: inline;" class="fas fa-search"></h3></a></li>
+              <li class="active"><a href="Search.php"><h4 style="display: inline;" class="fas fa-search"> Search</h4></a></li>
           </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="AdminLogin.php">Admin Login Page <i class="fas fa-user"></i></a></li>

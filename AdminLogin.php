@@ -49,11 +49,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="Receipt.php" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> IMAGE</a>
+        <a href="About.html" class="navbar-brand"><i class="fas fa-user-friends"></i> About</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-nav-demo">
           <ul class="nav navbar-nav">
-              <li><a href="Search.php"><h3 style="display: inline;" class="fas fa-search"></h3></a></li>
+              <li><a href="Search.php"><h4 style="display: inline;" class="fas fa-search"> Search</h4></a></li>
           </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="AdminLogin.php">Admin Login Page <i class="fas fa-user"></i></a></li>
