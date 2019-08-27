@@ -1,5 +1,5 @@
 <?php
-    include "connection.php";
+    require "connection.php";
     session_start();
     if(isset($_SESSION['id'])){
         if (isset($_POST["import"])) {
@@ -174,7 +174,7 @@
 	{
 ?>
 <script>
-      alert("You are logged out, so please login.");
+    alert("You are logged out, so please login.");
     window.location.href='AdminLogin.php';
 </script>
 <?php
