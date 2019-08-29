@@ -37,7 +37,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link rel="stylesheet" href="CSS.css">
+  <link rel="stylesheet" href="CSS2.css">
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -61,15 +61,16 @@
       </div>
     </div>
   </nav>
-  <div class="container">
-    <div class="jumbotron" style="background: none; color: white;">
+  <div class="container" align="center">
+    <div class="jumbotron" style="background: none; box-shadow: 1px 2px 5px 5px; padding: 1px">
         <h1 align="center">ABC WXYZ Engineering College</h1>
         <h4 align="center">QQQQ, WWWW, YYYY, India - 999999, Phone: 1234567890</h4>
     </div>
-    <p style="font-size:55px; color: lightblue ;" align='center'>
-    <font face="FreeSerif">Admin L☺gin</font></p>
-    <form class="box" method="POST" onsubmit='return login()'>
-        <center><div class="row">
+    <form class="box" method="POST" onsubmit='return login()' style="width: 60%; background: none; box-shadow: 1px 1px 3px 3px; padding: 1px; border-radius: 5% 5% 5% 5%">
+        <center>
+          <p style="font-size:55px; color: purple ;">
+          <font face="FreeSerif">Admin L☺gin</font></p>
+          <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="thumbnail">
                     <label for="uname" style="font-size: 20px;"><b>Username:</b></label>
@@ -77,22 +78,22 @@
                     <div id='adminerr'></div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="thumbnail">
-                    <label for="psw" style="font-size: 20px;"><b>Password:</b></label>
-                    <input required type="password" placeholder="Enter Password..." name="psw" id="pass">
-                    <div id='passerr'></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-                <button class="btn btn4" type="submit"  name="loginbtn" value="LOGIN">Login <i class="fas fa-sign-in-alt"></i></button>
-            </div>
-        </div>
-        </div></center>
+          </div>
+          <div class="row">
+              <div class="col-sm-8 col-sm-offset-2">
+                  <div class="thumbnail">
+                      <label for="psw" style="font-size: 20px;"><b>Password:</b></label>
+                      <input required type="password" placeholder="Enter Password..." name="psw" id="pass">
+                      <div id='passerr'></div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-8 col-sm-offset-2">
+                  <button class="btn btn4" type="submit"  name="loginbtn" value="LOGIN">Login <i class="fas fa-sign-in-alt"></i></button>
+              </div>
+          </div>
+        </center>
     </form>
   </div>
   <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>

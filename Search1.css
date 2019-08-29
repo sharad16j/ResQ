@@ -84,6 +84,9 @@ textarea::placeholder, .box input::placeholder{
 textarea:hover, .box input[type="text"]:hover, .box input[type="email"]:hover, .box input[type="option"]:hover, .box input[type="date"]:hover, .box input[type="password"]:hover{
     border: 2px solid rgb(165, 138, 238);
 }
+a{
+    padding: 5px
+}
 .box input[type="submit"]{
     border: 0;
     background: none;
@@ -197,7 +200,7 @@ input-tag:valid {
   margin-bottom: 1rem;
 }
 .input-field > label {
-  color: #1beed2;
+  color: #2fb4a2;
   position: absolute;
   top: 0;
   left: 0;
@@ -226,7 +229,7 @@ input[type=text]:not(.browser-default)
 {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #3cff00;
+  border-bottom: 1px solid #31d300;
   border-radius: 0;
   outline: none;
   height: 3rem;

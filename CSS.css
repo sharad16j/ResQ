@@ -1,7 +1,7 @@
 /* Uses Materialize and Bootstrap */
 body{
     padding-top: 70px;
-    background: black;
+    background: white;
     /* background: url(https://images.unsplash.com/photo-1516571748831-5d81767b788d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80); */
     /* background: url(eberhard-grossgasteiger-338314-unsplash.jpg); */
     /* background-size: auto; */
@@ -58,7 +58,7 @@ fieldset
     width: 90%;
     outline: none;
     color: whitesmoke;
-    border-radius: 24px;
+    border-radius: 2px;
     transition: 0.25s;
     height: 35px;
 }
@@ -72,7 +72,7 @@ textarea{
     width: 100%;
     outline: none;
     color: whitesmoke;
-    border-radius: 24px;
+    border-radius: 2px;
     transition: 0.25s;
 }
 textarea:focus{
@@ -100,7 +100,7 @@ textarea:hover, .box input[type="text"]:hover, .box input[type="email"]:hover, .
     padding: 14px 40px;
     outline: none;
     color: white;
-    border-radius: 24px;
+    border-radius: 2px;
     transition: 0.25s;
     cursor: pointer;
 }
@@ -118,7 +118,7 @@ textarea:hover, .box input[type="text"]:hover, .box input[type="email"]:hover, .
     width: 100%;
     outline: none;
     color: whitesmoke;
-    border-radius: 24px;
+    border-radius: 2px;
     transition: 0.25s;
 }
 .boxDisabled input::placeholder{

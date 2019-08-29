@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="Search.css">
+    <link rel="stylesheet" href="Search1.css">
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -25,7 +25,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="Receipt.php" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> IMAGE</a>
+        <a href="About.html" class="navbar-brand"><i class="fas fa-user-friends"></i> About</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-nav-demo">
         <ul class="nav navbar-nav navbar-right">
@@ -36,7 +36,7 @@
     </div>
   </nav>
     <div class="container">
-        <div class="jumbotron" style="background: none; color: white;">
+        <div class="jumbotron" style="background: none; box-shadow: 1px 2px 5px 5px; padding: 1px"">
             <h1 align="center">ABC WXYZ Engineering College</h1>
             <h4 align="center">QQQQ, WWWW, YYYY, India - 999999, Phone: 1234567890</h4>
         </div>
