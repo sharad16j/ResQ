@@ -36,7 +36,7 @@
     </div>
   </nav>
     <div class="container">
-        <div class="jumbotron" style="background: none; box-shadow: 1px 2px 5px 5px; padding: 1px"">
+        <div class="jumbotron" style="background: none; box-shadow: 1px 2px 5px 5px; padding: 1px">
             <h1 align="center">ABC WXYZ Engineering College</h1>
             <h4 align="center">QQQQ, WWWW, YYYY, India - 999999, Phone: 1234567890</h4>
         </div>

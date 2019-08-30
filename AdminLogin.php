@@ -66,7 +66,7 @@
         <h1 align="center">ABC WXYZ Engineering College</h1>
         <h4 align="center">QQQQ, WWWW, YYYY, India - 999999, Phone: 1234567890</h4>
     </div>
-    <form class="box" method="POST" onsubmit='return login()' style="width: 60%; background: none; box-shadow: 1px 1px 3px 3px; padding: 1px; border-radius: 5% 5% 5% 5%">
+    <form class="box" method="POST" onsubmit='return login()' style="width: 60%; background: none; box-shadow: 1px 1px 3px 3px; padding: 1px; border-radius: 1% 1% 1% 1%">
         <center>
           <p style="font-size:55px; color: purple ;">
           <font face="FreeSerif">Admin L☺gin</font></p>
