@@ -66,11 +66,10 @@
         <div class="col-sm-4 col-sm-offset-1" style="background: none; box-shadow: 1px 2px 5px 5px; padding: 15px; border-radius: 2% 2% 2% 2%">
             <form action="VerifyReceipt.php" method="POST">
                     <div class="input-field thumbnail">
-                        <input id="rollno" name="rollno" type="text" required maxlength="11" minlength="11" data-length="11"  class="form-contol input" onkeyup="ajax0()"> <!--// onkeypress="hideme()"" -->
+                        <input id="rollno" name="rollno" type="text" required maxlength="11" minlength="11" data-length="11"  class="form-contol input" onkeydown="ajax()">
                         <label for="rollno">Enter Roll Number</label>
                     </div>
-                    <center><button disabled=true; id="ajax_button" class="btn btn3">Search <i class="fas fa-search"></i></button></center>
-                    <div id='result'></div>
+                    <center><button id="button0" class="btn btn3">Search <i class="fas fa-search"></i></button></center>
                     <center><a href="AdminChange.php">Click here to change Admin username and/or password</a></center>
             </form>
         </div>
@@ -154,6 +153,34 @@
                     window.alert("Please enter a digit!");
                     return false;
                 }
+                var x = document.getElementById("rollno");
+                alert("1");
+<?php
+        echo "Found";
+        include "connection.php";
+        if(isset($_REQUEST["rollno"])){
+            $roll_no=$_REQUEST["rollno"];
+            session_start();
+            $_SESSION['rollno'] = $roll_no;
+            $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
+            $fetch1=mysqli_query($connection,"select * from receipt where std_rollno='$roll_no' ");
+            if(mysqli_fetch_assoc($fetch1))
+            {
+?>
+            document.getElementById("button0").hide = true;
+            document.getElementById("button0").disabled = false;
+            alert("2");
+<?php
+            }
+            else
+            {
+?>
+            document.getElementById("button0").hide = true;
+            document.getElementById("button0").disabled = true;
+<?php
+            }
+        }
+                ?>
             });
         });
     </script>
@@ -174,29 +201,6 @@
             return true;
         });
     });
-    function ajax0()
-    {
-        $.ajax({
-            type: 'POST',
-            url: "fetch.php",
-            data: {roll: $('#rollno').val()},
-            success:function(data)
-            {
-                $('#result').html(data);
-            },
-            complete: function()
-            {
-                document.getElementById("ajax_button").disabled=false;
-                document.getElementById("ajax_button").style.display = "block";
-            }
-        });
-    }
-    function hideme()
-    {
-        document.getElementById("ajax_button").disabled=true;
-        document.getElementById("ajax_button").style.display = "none";
-
-    }
     </script>
 </body>
 </html>
