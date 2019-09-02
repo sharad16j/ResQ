@@ -95,7 +95,8 @@
                   </div>
               </div>
           </div>
-        </fieldset>
+        </fieldset
+        >
           <div class="form-horizontal">
             <div class="col-sm-4">
                 <div class="thumbnail">
