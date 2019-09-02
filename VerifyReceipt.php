@@ -6,9 +6,12 @@
       $_SESSION['rollno'] = $roll_no;
       $fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$roll_no' ");
       $fetch1=mysqli_query($connection,"select * from receipt where std_rollno='$roll_no' ");
-      while($res=mysqli_fetch_assoc($fetch)){
-        $_SESSION['roll'] = $res['std_rollno'];
-        while($res1=mysqli_fetch_assoc($fetch1)){
+      $fetch2=mysqli_query($connection,"select * from receipt where std_rollno='$roll_no' ");
+      if(mysqli_fetch_assoc($fetch2))
+      {
+        while($res=mysqli_fetch_assoc($fetch)){
+          $_SESSION['roll'] = $res['std_rollno'];
+            while($res1=mysqli_fetch_assoc($fetch1)){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +22,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link rel="stylesheet" href="CSS.css">
+  <link rel="stylesheet" href="CSS2.css">
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -31,11 +34,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="Receipt.php" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> IMAGE</a>
+        <a href="About.html" class="navbar-brand"><i class="fas fa-user-friends"></i></span> About</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-nav-demo">
           <ul class="nav navbar-nav">
-              <li><a href="Admin.php"><h3 style="display: inline;" class="fas fa-search"></h3></a></li>
+              <li><a href="Admin.php"><h4 style="display: inline;" class="fas fa-search"> Admin Search</h4></a></li>
           </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="AdminLogin.php">Admin <i class="fas fa-user"></i></a></li>
@@ -45,7 +48,7 @@
     </div>
   </nav>
   <div class="container">
-    <div class="jumbotron" style="background: none; color: white;">
+    <div class="jumbotron" style="background: none; box-shadow: 1px 2px 5px 5px; padding: 1px">
         <h3 align="center" style="text-shadow: 1px 1px;">STUDENT COPY</h3>
         <h1 align="center">ABC WXYZ Engineering College</h1>
         <h4 align="center">QQQQ, WWWW, YYYY, India - 999999, Phone: 1234567890</h4>
@@ -91,8 +94,9 @@
                       <input disabled required maxlength="11" data-length="11" type="text" class="form-control input" id="rollno" name="rollno" placeholder="Enter roll no..." value="<?php  echo $res['std_rollno']?>">
                   </div>
               </div>
-            </div>
-          </fieldset>
+          </div>
+        </fieldset
+        >
           <div class="form-horizontal">
             <div class="col-sm-4">
                 <div class="thumbnail">
@@ -152,16 +156,15 @@
                     <label for="cb6" class="thumbnail col-xs-7 control-label">Other:</label>
                     <div class="col-xs-5">
                       <input disabled type="text" name="cb6" id="cb6" value="<?php  echo $res1['other']?>" placeholder="0"><br>
-                    </div>payvia
+                    </div>
                   </div>
                 </div>
-
 
                 <div class="col-sm-6">
                   <label for="payvia" class="thumbnail col-xs-4 control-label" for="payvia">Select payment method-</label>
                   <div class="col-xs-8">
                     <div class="thumbnail">
-                      <input disabled type="text" name="cb6" id="cb6" value="<?php  echo $res1['payvia']?>" placeholder="0"><br>
+                      <input disabled type="text" name="cb6" id="cb6" <?php if($res1['payvia']=='chkdd'){?>value="Cheque/DD"<?php }else{?>value="Cash"<?php }?> placeholder="0">
                     </div>
                   </div>
                   <fieldset id="chkdd" class="col-xs-12">
@@ -179,25 +182,25 @@
                     </div>
                     <label class="thumbnail col-xs-5 control-label"  for="date">Cheque/DD date:</label>
                     <div class="col-xs-7">
-                      <input disabled required="" name="date" type="date" value="<?php  echo $res1['dateofissue']?>" id="date">
-                    </div> -->
-                  <fieldset class="col-xs-6">
-                    <div class="col-xs-8">
+                      <input disabled required="" name="date" type="text" value="<?php  echo $res1['dateofissue']?>" id="date">
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="row">
+                    <div class="col-xs-6">
                       <label class="thumbnail" for="Comments">Comments:</label>
                       <textarea disabled name="Comments" id="Comments" placeholder="Write number printed on notes (if asked)." style="height:100px; width: 100%;"></textarea><br>
                     </div>
-                  </fieldset>
-                  </fieldset>
-               <?php 
-                  $payvia = $res1['payvia'];
-                  if($payvia=="chkdd"){}
-                ?>
-                </div>
+                  <?php 
+                      $payvia = $res1['payvia'];//What is this????????????????????????????????????????????????  style="border-style: solid; border-color: red;"
+                      if($payvia=="chkdd"){}
+                    ?>
+                    <div class="col-xs-6">
+                        <center><button class="btn btn1">Verify</button></center>
+                    </div>
               </div>
-            </fieldset>
-            <div class="col-xs-12">
-                <center><button class="btn btn1">Verify</button></center>
-            </div>
+             </fieldset>
           </div>
       </div>
     </form>
@@ -225,16 +228,22 @@
     //             return false;
     //     }
     // }
-    if($payvia=='checkdd')
+    <?php
+    if($payvia=='chkdd')
     {
-      $("#chkdd").prop('disabled', true);
-      $("#chkdd").show();
+    ?>
+        $("#chkdd").prop('disabled', false);
+        $("#chkdd").show();
+    <?php
     }
     else
     {
+    ?>
       $("#chkdd").prop('disabled', true);
       $("#chkdd").hide();
+    <?php
     }
+    ?>
     $('select[name="payvia"]').change(function()
     {
       if ($(this).val() == "Cash")
@@ -283,16 +292,17 @@
 </body>
 </html>
 <?php
+          }
         }
       }
-    }
-    else
-    {
+      else
+      {
 ?>
-    <script>
-      alert("Search by entering roll number in Admin Page.");
-      window.location.href='Admin.php';
-    </script>
+      <script>
+        alert("Search by entering correct roll number in Admin Page.");
+        window.location.href='Admin.php';
+      </script>
 <?php
+      }
     }
 ?>
