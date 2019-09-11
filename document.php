@@ -3,6 +3,7 @@
 	include "connection.php";
 	session_start();
 	$rollno = $_SESSION['roll'];
+
 	$fetch=mysqli_query($connection,"select * from std_detail where std_rollno='$rollno' ");
 	while($res=mysqli_fetch_assoc($fetch)){
 		$name=$res['std_name'];
@@ -162,6 +163,12 @@ $pdf->Cell(0,5,"Note: i) The receipt is for the encashment of DD/cheque ",0,1,'L
 $pdf->Cell(0,5,"ii)The amount Due must be paid within the DUE DATE  to avoid suspension of his/her name from Rolls ",0,1,'L');
 $pdf->Cell(0,5,"and incidental loss of percentage and other complication ",0,1,'L');
 $pdf->Cell(0,5,"iii)Fees once paid would not be refunded at any cost",0,1,'L');
-$pdf->output("/opt/lampp/htdocs/Resqueue");//save
+$fileName =$rollno. '.pdf';
+
+$pdf->output('/opt/lampp/htdocs/Resqueque/'.$fileName,'F');//save
 ob_end_flush();//
-?> 
+session_start();
+$_SESSION['roll_no'] = $rollno;
+header("Location: mail.php");
+
+?>
