@@ -13,7 +13,6 @@
 	$backlog=$_POST['cb5'];
 	$other=$_POST['cb6'];
 	$payvia=$_POST['payvia'];
-
 	if($payvia =="chkdd"){
 		$num=$_POST['num'];
 		$bank=$_POST['bank'];

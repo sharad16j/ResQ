@@ -8,7 +8,7 @@
     <title>DocumBlur Backgroundent</title>
 </head>
 <body>
-    <!-- <section>
+    <section>
         <div class="BlurBox">
             <h2>qwerty</h2>
             <p>
@@ -17,41 +17,6 @@
                 MXYPTLK <br>
             </p>
         </div>
-    </section> -->
-    <form action="About.html" method="POST">
-        <div class="input-field thumbnail">
-            <input id="rollno" type="text" onkeyup="ajax0()"> <!--// onkeypress="hideme()"" -->
-            <label for="rollno">Enter Roll Number</label>
-        </div>
-        <button disabled=true; id="ajax_button" style="display: None">Search <i class="fas fa-search"></i></button>
-        <div id='result'></div>
-    </form>
-    <script>
-        function ajax0()
-        {
-                    document.getElementById("ajax_button").disabled=false;
-                    document.getElementById("ajax_button").style.display = "block";
-            $.ajax({
-                type: 'POST',
-                url: "fetch2.php",
-                data: {roll: $('#rollno').val()},
-                success:function(data)
-                {
-                    $('#result').html(data);
-                    alert("hello");
-                },
-                complete: function()
-                {
-                    document.getElementById("ajax_button").disabled=false;
-                    document.getElementById("ajax_button").style.display = "block";
-                }
-            });
-        }input.addEventListener('keydown', function(event) {
-    const key = event.key; // const {key} = event; ES6+
-    if (key === "Backspace" || key === "Delete") {
-        alert("yyyyyyyyy");
-    }
-});
-    </script>
+    </section>
 </body>
 </html>
