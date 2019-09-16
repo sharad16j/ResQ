@@ -9,6 +9,11 @@
             while($res=mysqli_fetch_assoc($fetch))
             {
                 echo '<script>alert("Data found")</script>';
+                echo '<button disabled=true; id="ajax_button" class="btn btn3">Search <i class="fas fa-search"></i></button>';
             }
+        }
+        else
+        {
+            echo '<h6 style="color: red;">Data not found</h6>';
         }
 ?>

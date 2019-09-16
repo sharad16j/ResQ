@@ -69,8 +69,8 @@
                         <input id="rollno" name="rollno" type="text" required maxlength="11" minlength="11" data-length="11"  class="form-contol input" onkeyup="ajax0()"> <!--// onkeypress="hideme()"" -->
                         <label for="rollno">Enter Roll Number</label>
                     </div>
-                    <center><button disabled=true; id="ajax_button" class="btn btn3">Search <i class="fas fa-search"></i></button></center>
-                    <div id='result'></div>
+                    <!-- <center><button disabled=true; id="ajax_button" class="btn btn3">Search <i class="fas fa-search"></i></button></center> -->
+                    <center><div id='result'></div></center>
                     <center><a href="AdminChange.php">Click here to change Admin username and/or password</a></center>
             </form>
         </div>

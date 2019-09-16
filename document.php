@@ -165,7 +165,7 @@ $pdf->Cell(0,5,"and incidental loss of percentage and other complication ",0,1,'
 $pdf->Cell(0,5,"iii)Fees once paid would not be refunded at any cost",0,1,'L');
 $fileName =$rollno. '.pdf';
 
-$pdf->output('/opt/lampp/htdocs/Resqueque/'.$fileName,'F');//save
+$pdf->output('/opt/lampp/htdocs/Resqueue/'.$fileName,'F');//save
 ob_end_flush();//
 session_start();
 $_SESSION['roll_no'] = $rollno;
