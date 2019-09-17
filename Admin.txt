@@ -1,4 +1,4 @@
-<?php
+<?php 
     $conn = mysqli_connect("localhost", "root", "", "register");
     if (isset($_POST["import"])) {
         $fileName = $_FILES["file"]["tmp_name"];

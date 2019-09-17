@@ -28,6 +28,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta http-equiv="refresh" content="50000;url=Logout.php";/>
+
     <script src="jquery-3.2.1.min.js"></script>
     <title>Admin Page</title>
     <meta charset="UTF-8">
