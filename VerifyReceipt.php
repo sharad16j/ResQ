@@ -12,6 +12,16 @@
         while($res=mysqli_fetch_assoc($fetch)){
           $_SESSION['roll'] = $res['std_rollno'];
             while($res1=mysqli_fetch_assoc($fetch1)){
+               if($res1['year'] == NULL or $res1['semester']== NULL or $res1['stream']==NULL or $res1['sumofrupee']  == NULL or $res1['payvia'] == NULL )
+              {
+                
+                ?>
+          <script>
+            window.alert("The user has not filled his details ");
+              window.location.href='Admin.php';
+          </script>
+          <?php
+              }
 ?>
 <!DOCTYPE html>
 <html lang="en">
