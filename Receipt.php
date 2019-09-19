@@ -304,7 +304,7 @@
       {
 ?>
       <script>
-        alert("Search by entering correct roll number in Search Page.");
+        alert("Roll number not found in admin's databse. \nEnter correct roll number or contact admin.");
         window.location.href='Search.php';
       </script>
 <?php

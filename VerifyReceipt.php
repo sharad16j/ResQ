@@ -1,6 +1,7 @@
 <?php
     include "connection.php";
-    if(isset($_REQUEST["rollno"])){
+    if(isset($_REQUEST["rollno"]))
+    {
       $roll_no=$_REQUEST["rollno"];
       session_start();
       $_SESSION['rollno'] = $roll_no;
@@ -9,18 +10,19 @@
       $fetch2=mysqli_query($connection,"select * from receipt where std_rollno='$roll_no' ");
       if(mysqli_fetch_assoc($fetch2))
       {
-        while($res=mysqli_fetch_assoc($fetch)){
+        while($res=mysqli_fetch_assoc($fetch))
+        {
           $_SESSION['roll'] = $res['std_rollno'];
-            while($res1=mysqli_fetch_assoc($fetch1)){
-               if($res1['year'] == NULL or $res1['semester']== NULL or $res1['stream']==NULL or $res1['sumofrupee']  == NULL or $res1['payvia'] == NULL )
+            while($res1=mysqli_fetch_assoc($fetch1))
+            {
+              if($res1['year'] == NULL or $res1['semester']== NULL or $res1['stream']==NULL or $res1['sumofrupee']  == NULL or $res1['payvia'] == NULL )
               {
-                
-                ?>
-          <script>
-            window.alert("The user has not filled his details ");
-              window.location.href='Admin.php';
-          </script>
-          <?php
+?>
+                <script>
+                  window.alert("The user has not filled his/her details.");
+                  window.location.href='Admin.php';
+                </script>
+<?php
               }
 ?>
 <!DOCTYPE html>
